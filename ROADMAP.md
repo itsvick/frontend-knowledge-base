@@ -31,16 +31,15 @@ A suggested order for working through this knowledge base. Adjust based on the r
 - 18-LLD
 - 19-HLD
 - 00-Behavioral
-- 22-Interview-Experiences
-- 30-Interview-Coding
+- 21-Interview-Experiences
+- 29-Interview-Coding
 
 ## Ongoing
 - 20-AI
-- 21-Projects
-- 23-Leadership
-- 24-Release-Engineering
-- 25-Mobile-Engineering
-- 26-Architecture
-- 27-Production
-- 28-Solution-Design
-- 29-Real-World-Scenarios
+- 22-Leadership
+- 23-Release-Engineering
+- 24-Mobile-Engineering
+- 25-Architecture
+- 26-Production
+- 27-Solution-Design
+- 28-Real-World-Scenarios
