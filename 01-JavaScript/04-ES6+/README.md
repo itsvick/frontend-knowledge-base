@@ -2,11 +2,60 @@
 
 > Subsection of 01-JavaScript.
 
-Add one `.md` file per topic here as you learn/interview on it. Suggested starting files:
+## Overview
 
-- `Destructuring.md`
-- `Spread-Rest.md`
-- `Modules.md`
-- `Optional-Chaining.md`
+Modern JavaScript syntax introduced from ES6 onward: arrow functions, template literals, spread/rest, and destructuring.
 
-Each file should follow the standard topic template (see `templates/Question-Template.md`): Overview, Key Concepts, Interview Q&A, Code Examples, Common Pitfalls, References.
+## Key Concepts
+
+- Arrow functions: concise syntax, no own `this`/`arguments`, can't be used as constructors
+- Template literals: backtick strings with `${}` interpolation and multi-line support
+- Spread expands an iterable/object; rest collects arguments/properties (same `...` syntax)
+- Destructuring extracts values from arrays/objects into distinct variables
+
+## Interview Questions & Answers
+
+### Q1. What is an arrow function?
+
+**Answer:** A shorter syntax for writing functions.
+
+### Q2. What are template literals?
+
+**Answer:** Strings enclosed in backticks (`` ` ``) that support interpolation.
+
+### Q3. What is the spread operator (...)?
+
+**Answer:** It expands elements from an array or object.
+
+### Q4. What is destructuring?
+
+**Answer:** Extracting values from arrays or objects.
+
+## Code Examples
+
+```js
+// Q1: arrow function
+const add = (a, b) => a + b;
+
+// Q2: template literal
+let name = "John";
+console.log(`Hello ${name}`);
+
+// Q3: spread operator
+const arr = [1, 2];
+const newArr = [...arr, 3]; // [1, 2, 3]
+
+// Q4: destructuring
+const person = { name: "Sam", age: 25 };
+const { name: personName, age } = person;
+```
+
+## Common Pitfalls
+
+- Using an arrow function as an object method when you need `this` to refer to the object.
+- Assuming spread produces a deep copy — it only shallow-copies; nested objects/arrays are still shared by reference.
+- Destructuring a property that doesn't exist yields `undefined` instead of throwing, which can hide typos.
+
+## References
+
+-

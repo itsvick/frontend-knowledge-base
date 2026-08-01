@@ -30,13 +30,29 @@ real-world scenarios, so the content can be reviewed and expanded over time.
 
 ## Conventions
 
-- One `.md` file per topic within a section/subfolder (e.g.
-  `01-JavaScript/Closures/README.md` or a dedicated file per concept).
-- New topic notes should follow the existing template shape: Overview, Key
+- Prefer consolidating notes into the section/subfolder's `README.md` rather
+  than creating a separate `.md` file per topic — the user does not want a
+  proliferation of small files. Only split a topic into its own file if the
+  user explicitly asks for it or the section already has real per-file
+  content (e.g. `03-HTML/04-Browser.md`, which is itself the whole note, not
+  a folder of files).
+- If a topic grows large/deep enough that a dedicated file seems genuinely
+  worth it (e.g. `README.md` is getting unwieldy, or the topic warrants
+  significant depth of its own), don't just create it — ask the user first
+  and let them decide before splitting it out.
+- When a `README.md` covers multiple Q&A topics, keep the same overall
+  template shape but fold everything into shared sections: one `## Overview`,
+  one merged `## Key Concepts`, all questions under one
+  `## Interview Questions & Answers` (numbered `### Q1.`, `### Q2.`, ...),
+  all snippets under one `## Code Examples` (each snippet commented with
+  which question it's for), one merged `## Common Pitfalls`, one
+  `## References`.
+- New/updated notes should follow the existing template shape: Overview, Key
   Concepts, Interview Q&A, Code Examples, Common Pitfalls, References.
 - Most section folders currently contain only a stub `README.md` describing
-  suggested files to add — treat these as scaffolding to fill in, not
-  finished content.
+  suggested files to add — treat these as scaffolding to fill in with the
+  above consolidated format, not as a prompt to create one file per
+  suggestion.
 
 ## When helping here
 

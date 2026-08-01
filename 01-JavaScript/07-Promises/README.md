@@ -2,9 +2,35 @@
 
 > Subsection of 01-JavaScript.
 
-Add one `.md` file per topic here as you learn/interview on it. Suggested starting files:
+## Overview
 
-- `Basics.md`
-- `Promise-Combinators.md`
+A Promise represents the eventual completion or failure of an asynchronous operation, exposing `.then()`/`.catch()`/`.finally()` to handle the result.
 
-Each file should follow the standard topic template (see `templates/Question-Template.md`): Overview, Key Concepts, Interview Q&A, Code Examples, Common Pitfalls, References.
+## Key Concepts
+
+- Three states: pending, fulfilled, rejected
+- Once settled, a Promise's state is immutable
+- `.then()` chains transformations; `.catch()` handles rejections
+
+## Interview Questions & Answers
+
+### Q1. What is a Promise?
+
+**Answer:** A Promise represents the eventual completion or failure of an asynchronous operation.
+
+## Code Examples
+
+```js
+fetch(url)
+  .then((res) => res.json())
+  .catch((err) => console.log(err));
+```
+
+## Common Pitfalls
+
+- Forgetting to return a value/Promise inside a `.then()` chain, breaking the chain.
+- Not adding a `.catch()`, leading to unhandled Promise rejections.
+
+## References
+
+-
