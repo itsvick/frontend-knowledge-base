@@ -14,7 +14,7 @@ real-world scenarios, so the content can be reviewed and expanded over time.
 
 ## Structure
 
-- Numbered top-level folders (`00-Behavioral` through `29-Real-World-Scenarios`)
+- Numbered top-level folders (`00-Behavioral` through `29-Interview-Coding`)
   each cover one subject area (JavaScript, TypeScript, React, System Design,
   DSA, LLD/HLD, Security, DevOps, etc.). Some have their own subfolders per
   topic (e.g. `01-JavaScript/Closures`, `01-JavaScript/Promises`).
