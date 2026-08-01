@@ -7,307 +7,308 @@ See [ROADMAP.md](ROADMAP.md) for a suggested learning order and
 
 ## Sections
 
-Click a section to expand it and jump straight to a note.
+Click a section to expand it and jump straight to a note. Entries are
+numbered in the order they're meant to be studied.
 
 <details>
 <summary><a href="00-Behavioral/">00-Behavioral</a></summary>
 
-- [Conflict-Resolution](00-Behavioral/Conflict-Resolution.md)
-- [Introduction](00-Behavioral/Introduction.md)
-- [Leadership](00-Behavioral/Leadership.md)
-- [Project-Challenges](00-Behavioral/Project-Challenges.md)
-- [STAR-Answers](00-Behavioral/STAR-Answers.md)
-- [Stakeholder-Communication](00-Behavioral/Stakeholder-Communication.md)
-- [Team-Management](00-Behavioral/Team-Management.md)
+- [01-Introduction](00-Behavioral/01-Introduction.md)
+- [02-STAR-Answers](00-Behavioral/02-STAR-Answers.md)
+- [03-Team-Management](00-Behavioral/03-Team-Management.md)
+- [04-Leadership](00-Behavioral/04-Leadership.md)
+- [05-Conflict-Resolution](00-Behavioral/05-Conflict-Resolution.md)
+- [06-Stakeholder-Communication](00-Behavioral/06-Stakeholder-Communication.md)
+- [07-Project-Challenges](00-Behavioral/07-Project-Challenges.md)
 
 </details>
 
 <details>
 <summary><a href="01-JavaScript/">01-JavaScript</a></summary>
 
-- [FAQs](01-JavaScript/FAQs.md)
-- [Advanced](01-JavaScript/Advanced/README.md)
-- [Async](01-JavaScript/Async/README.md)
-- [Basics](01-JavaScript/Basics/README.md)
-- [Closures](01-JavaScript/Closures/README.md)
-- [ES6+](01-JavaScript/ES6+/README.md)
-- [Event-Loop](01-JavaScript/Event-Loop/README.md)
-- [Generators](01-JavaScript/Generators/README.md)
-- [Interview-Coding](01-JavaScript/Interview-Coding/README.md)
-- [Memory-Management](01-JavaScript/Memory-Management/README.md)
-- [Performance](01-JavaScript/Performance/README.md)
-- [Polyfills](01-JavaScript/Polyfills/README.md)
-- [Promises](01-JavaScript/Promises/README.md)
-- [Prototype](01-JavaScript/Prototype/README.md)
+- [01-Basics](01-JavaScript/01-Basics/README.md)
+- [02-Closures](01-JavaScript/02-Closures/README.md)
+- [03-Prototype](01-JavaScript/03-Prototype/README.md)
+- [04-ES6+](01-JavaScript/04-ES6+/README.md)
+- [05-Event-Loop](01-JavaScript/05-Event-Loop/README.md)
+- [06-Async](01-JavaScript/06-Async/README.md)
+- [07-Promises](01-JavaScript/07-Promises/README.md)
+- [08-Generators](01-JavaScript/08-Generators/README.md)
+- [09-Memory-Management](01-JavaScript/09-Memory-Management/README.md)
+- [10-Performance](01-JavaScript/10-Performance/README.md)
+- [11-Polyfills](01-JavaScript/11-Polyfills/README.md)
+- [12-Advanced](01-JavaScript/12-Advanced/README.md)
+- [13-Interview-Coding](01-JavaScript/13-Interview-Coding/README.md)
+- [14-FAQs](01-JavaScript/14-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="02-TypeScript/">02-TypeScript</a></summary>
 
-- [Advanced-Types](02-TypeScript/Advanced-Types.md)
-- [Basics](02-TypeScript/Basics.md)
-- [Compiler](02-TypeScript/Compiler.md)
-- [Configuration](02-TypeScript/Configuration.md)
-- [Decorators](02-TypeScript/Decorators.md)
-- [FAQs](02-TypeScript/FAQs.md)
-- [Generics](02-TypeScript/Generics.md)
-- [Utility-Types](02-TypeScript/Utility-Types.md)
+- [01-Basics](02-TypeScript/01-Basics.md)
+- [02-Configuration](02-TypeScript/02-Configuration.md)
+- [03-Compiler](02-TypeScript/03-Compiler.md)
+- [04-Generics](02-TypeScript/04-Generics.md)
+- [05-Utility-Types](02-TypeScript/05-Utility-Types.md)
+- [06-Advanced-Types](02-TypeScript/06-Advanced-Types.md)
+- [07-Decorators](02-TypeScript/07-Decorators.md)
+- [08-FAQs](02-TypeScript/08-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="03-HTML/">03-HTML</a></summary>
 
-- [Accessibility](03-HTML/Accessibility.md)
-- [Browser](03-HTML/Browser.md)
-- [FAQs](03-HTML/FAQs.md)
-- [SEO](03-HTML/SEO.md)
-- [Semantic](03-HTML/Semantic.md)
+- [01-Semantic](03-HTML/01-Semantic.md)
+- [02-Accessibility](03-HTML/02-Accessibility.md)
+- [03-SEO](03-HTML/03-SEO.md)
+- [04-Browser](03-HTML/04-Browser.md)
+- [05-FAQs](03-HTML/05-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="04-CSS/">04-CSS</a></summary>
 
-- [Animations](04-CSS/Animations.md)
-- [FAQs](04-CSS/FAQs.md)
-- [Flexbox](04-CSS/Flexbox.md)
-- [Grid](04-CSS/Grid.md)
-- [Layout](04-CSS/Layout.md)
-- [Performance](04-CSS/Performance.md)
-- [Responsive](04-CSS/Responsive.md)
-- [SCSS](04-CSS/SCSS.md)
-- [Tailwind](04-CSS/Tailwind.md)
+- [01-Layout](04-CSS/01-Layout.md)
+- [02-Flexbox](04-CSS/02-Flexbox.md)
+- [03-Grid](04-CSS/03-Grid.md)
+- [04-Responsive](04-CSS/04-Responsive.md)
+- [05-Animations](04-CSS/05-Animations.md)
+- [06-SCSS](04-CSS/06-SCSS.md)
+- [07-Tailwind](04-CSS/07-Tailwind.md)
+- [08-Performance](04-CSS/08-Performance.md)
+- [09-FAQs](04-CSS/09-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="05-React/">05-React</a></summary>
 
-- [FAQs](05-React/FAQs.md)
-- [Accessibility](05-React/Accessibility/README.md)
-- [Advanced](05-React/Advanced/README.md)
-- [Architecture](05-React/Architecture/README.md)
-- [Concurrent](05-React/Concurrent/README.md)
-- [Core](05-React/Core/README.md)
-- [Custom-Hooks](05-React/Custom-Hooks/README.md)
-- [Design-Patterns](05-React/Design-Patterns/README.md)
-- [Error-Boundary](05-React/Error-Boundary/README.md)
-- [Fiber](05-React/Fiber/README.md)
-- [Forms](05-React/Forms/README.md)
-- [Hooks](05-React/Hooks/README.md)
-- [Performance](05-React/Performance/README.md)
-- [Reconciliation](05-React/Reconciliation/README.md)
-- [Rendering](05-React/Rendering/README.md)
-- [Routing](05-React/Routing/README.md)
-- [Security](05-React/Security/README.md)
-- [Server-Components](05-React/Server-Components/README.md)
-- [Suspense](05-React/Suspense/README.md)
-- [Testing](05-React/Testing/README.md)
+- [01-Core](05-React/01-Core/README.md)
+- [02-Hooks](05-React/02-Hooks/README.md)
+- [03-Custom-Hooks](05-React/03-Custom-Hooks/README.md)
+- [04-Forms](05-React/04-Forms/README.md)
+- [05-Routing](05-React/05-Routing/README.md)
+- [06-Rendering](05-React/06-Rendering/README.md)
+- [07-Reconciliation](05-React/07-Reconciliation/README.md)
+- [08-Fiber](05-React/08-Fiber/README.md)
+- [09-Concurrent](05-React/09-Concurrent/README.md)
+- [10-Suspense](05-React/10-Suspense/README.md)
+- [11-Server-Components](05-React/11-Server-Components/README.md)
+- [12-Error-Boundary](05-React/12-Error-Boundary/README.md)
+- [13-Performance](05-React/13-Performance/README.md)
+- [14-Design-Patterns](05-React/14-Design-Patterns/README.md)
+- [15-Architecture](05-React/15-Architecture/README.md)
+- [16-Accessibility](05-React/16-Accessibility/README.md)
+- [17-Security](05-React/17-Security/README.md)
+- [18-Testing](05-React/18-Testing/README.md)
+- [19-Advanced](05-React/19-Advanced/README.md)
+- [20-FAQs](05-React/20-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="06-NextJS/">06-NextJS</a></summary>
 
-- [Authentication](06-NextJS/Authentication.md)
-- [Caching](06-NextJS/Caching.md)
-- [Deployment](06-NextJS/Deployment.md)
-- [FAQs](06-NextJS/FAQs.md)
-- [ISR](06-NextJS/ISR.md)
-- [Middleware](06-NextJS/Middleware.md)
-- [SSG](06-NextJS/SSG.md)
-- [SSR](06-NextJS/SSR.md)
-- [Server-Actions](06-NextJS/Server-Actions.md)
-- [App-Router](06-NextJS/App-Router/README.md)
-- [Pages-Router](06-NextJS/Pages-Router/README.md)
+- [01-Pages-Router](06-NextJS/01-Pages-Router/README.md)
+- [02-App-Router](06-NextJS/02-App-Router/README.md)
+- [03-SSR](06-NextJS/03-SSR.md)
+- [04-SSG](06-NextJS/04-SSG.md)
+- [05-ISR](06-NextJS/05-ISR.md)
+- [06-Caching](06-NextJS/06-Caching.md)
+- [07-Server-Actions](06-NextJS/07-Server-Actions.md)
+- [08-Middleware](06-NextJS/08-Middleware.md)
+- [09-Authentication](06-NextJS/09-Authentication.md)
+- [10-Deployment](06-NextJS/10-Deployment.md)
+- [11-FAQs](06-NextJS/11-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="07-React-Native/">07-React-Native</a></summary>
 
-- [Architecture](07-React-Native/Architecture.md)
-- [Deep-Linking](07-React-Native/Deep-Linking.md)
-- [Expo](07-React-Native/Expo.md)
-- [FAQs](07-React-Native/FAQs.md)
-- [Metro](07-React-Native/Metro.md)
-- [Native-Modules](07-React-Native/Native-Modules.md)
-- [Navigation](07-React-Native/Navigation.md)
-- [Offline](07-React-Native/Offline.md)
-- [Performance](07-React-Native/Performance.md)
-- [Push-Notification](07-React-Native/Push-Notification.md)
+- [01-Architecture](07-React-Native/01-Architecture.md)
+- [02-Navigation](07-React-Native/02-Navigation.md)
+- [03-Native-Modules](07-React-Native/03-Native-Modules.md)
+- [04-Metro](07-React-Native/04-Metro.md)
+- [05-Expo](07-React-Native/05-Expo.md)
+- [06-Deep-Linking](07-React-Native/06-Deep-Linking.md)
+- [07-Push-Notification](07-React-Native/07-Push-Notification.md)
+- [08-Offline](07-React-Native/08-Offline.md)
+- [09-Performance](07-React-Native/09-Performance.md)
+- [10-FAQs](07-React-Native/10-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="08-Angular/">08-Angular</a></summary>
 
-- [Change-Detection](08-Angular/Change-Detection.md)
-- [Components](08-Angular/Components.md)
-- [DI](08-Angular/DI.md)
-- [FAQs](08-Angular/FAQs.md)
-- [Routing](08-Angular/Routing.md)
-- [RxJS](08-Angular/RxJS.md)
-- [Signals](08-Angular/Signals.md)
-- [Standalone](08-Angular/Standalone.md)
+- [01-Components](08-Angular/01-Components.md)
+- [02-DI](08-Angular/02-DI.md)
+- [03-Change-Detection](08-Angular/03-Change-Detection.md)
+- [04-RxJS](08-Angular/04-RxJS.md)
+- [05-Routing](08-Angular/05-Routing.md)
+- [06-Standalone](08-Angular/06-Standalone.md)
+- [07-Signals](08-Angular/07-Signals.md)
+- [08-FAQs](08-Angular/08-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="09-State-Management/">09-State-Management</a></summary>
 
-- [Comparison](09-State-Management/Comparison.md)
-- [Context](09-State-Management/Context.md)
-- [MobX](09-State-Management/MobX.md)
-- [React-Query](09-State-Management/React-Query.md)
-- [Redux-Toolkit](09-State-Management/Redux-Toolkit.md)
-- [Redux](09-State-Management/Redux.md)
-- [Zustand](09-State-Management/Zustand.md)
+- [01-Context](09-State-Management/01-Context.md)
+- [02-Redux](09-State-Management/02-Redux.md)
+- [03-Redux-Toolkit](09-State-Management/03-Redux-Toolkit.md)
+- [04-Zustand](09-State-Management/04-Zustand.md)
+- [05-MobX](09-State-Management/05-MobX.md)
+- [06-React-Query](09-State-Management/06-React-Query.md)
+- [07-Comparison](09-State-Management/07-Comparison.md)
 
 </details>
 
 <details>
 <summary><a href="10-NodeJS/">10-NodeJS</a></summary>
 
-- [APIs](10-NodeJS/APIs.md)
-- [Event-Loop](10-NodeJS/Event-Loop.md)
-- [Express](10-NodeJS/Express.md)
-- [FAQs](10-NodeJS/FAQs.md)
-- [JWT](10-NodeJS/JWT.md)
-- [NestJS](10-NodeJS/NestJS.md)
-- [Performance](10-NodeJS/Performance.md)
-- [Security](10-NodeJS/Security.md)
+- [01-Event-Loop](10-NodeJS/01-Event-Loop.md)
+- [02-APIs](10-NodeJS/02-APIs.md)
+- [03-Express](10-NodeJS/03-Express.md)
+- [04-NestJS](10-NodeJS/04-NestJS.md)
+- [05-JWT](10-NodeJS/05-JWT.md)
+- [06-Security](10-NodeJS/06-Security.md)
+- [07-Performance](10-NodeJS/07-Performance.md)
+- [08-FAQs](10-NodeJS/08-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="11-System-Design/">11-System-Design</a></summary>
 
-- [Authentication](11-System-Design/Authentication.md)
-- [Authorization](11-System-Design/Authorization.md)
-- [CDN](11-System-Design/CDN.md)
-- [Caching](11-System-Design/Caching.md)
-- [Design-System](11-System-Design/Design-System.md)
-- [Frontend-Architecture](11-System-Design/Frontend-Architecture.md)
-- [Microfrontends](11-System-Design/Microfrontends.md)
-- [Performance](11-System-Design/Performance.md)
-- [Scalability](11-System-Design/Scalability.md)
-- [WebSocket](11-System-Design/WebSocket.md)
-- [Case-Studies](11-System-Design/Case-Studies/README.md)
+- [01-Frontend-Architecture](11-System-Design/01-Frontend-Architecture.md)
+- [02-Design-System](11-System-Design/02-Design-System.md)
+- [03-Microfrontends](11-System-Design/03-Microfrontends.md)
+- [04-Caching](11-System-Design/04-Caching.md)
+- [05-CDN](11-System-Design/05-CDN.md)
+- [06-Performance](11-System-Design/06-Performance.md)
+- [07-Scalability](11-System-Design/07-Scalability.md)
+- [08-WebSocket](11-System-Design/08-WebSocket.md)
+- [09-Authentication](11-System-Design/09-Authentication.md)
+- [10-Authorization](11-System-Design/10-Authorization.md)
+- [11-Case-Studies](11-System-Design/11-Case-Studies/README.md)
 
 </details>
 
 <details>
 <summary><a href="12-Web-Performance/">12-Web-Performance</a></summary>
 
-- [Bundle-Analysis](12-Web-Performance/Bundle-Analysis.md)
-- [Code-Splitting](12-Web-Performance/Code-Splitting.md)
-- [Core-Web-Vitals](12-Web-Performance/Core-Web-Vitals.md)
-- [FAQs](12-Web-Performance/FAQs.md)
-- [Image-Optimization](12-Web-Performance/Image-Optimization.md)
-- [Lazy-Loading](12-Web-Performance/Lazy-Loading.md)
-- [Rendering](12-Web-Performance/Rendering.md)
+- [01-Core-Web-Vitals](12-Web-Performance/01-Core-Web-Vitals.md)
+- [02-Rendering](12-Web-Performance/02-Rendering.md)
+- [03-Code-Splitting](12-Web-Performance/03-Code-Splitting.md)
+- [04-Lazy-Loading](12-Web-Performance/04-Lazy-Loading.md)
+- [05-Bundle-Analysis](12-Web-Performance/05-Bundle-Analysis.md)
+- [06-Image-Optimization](12-Web-Performance/06-Image-Optimization.md)
+- [07-FAQs](12-Web-Performance/07-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="13-Security/">13-Security</a></summary>
 
-- [CSP](13-Security/CSP.md)
-- [CSRF](13-Security/CSRF.md)
-- [FAQs](13-Security/FAQs.md)
-- [JWT](13-Security/JWT.md)
-- [OWASP](13-Security/OWASP.md)
-- [XSS](13-Security/XSS.md)
+- [01-OWASP](13-Security/01-OWASP.md)
+- [02-XSS](13-Security/02-XSS.md)
+- [03-CSRF](13-Security/03-CSRF.md)
+- [04-CSP](13-Security/04-CSP.md)
+- [05-JWT](13-Security/05-JWT.md)
+- [06-FAQs](13-Security/06-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="14-Testing/">14-Testing</a></summary>
 
-- [Cypress](14-Testing/Cypress.md)
-- [E2E](14-Testing/E2E.md)
-- [Integration](14-Testing/Integration.md)
-- [Jest](14-Testing/Jest.md)
-- [Playwright](14-Testing/Playwright.md)
-- [RTL](14-Testing/RTL.md)
-- [Unit](14-Testing/Unit.md)
+- [01-Unit](14-Testing/01-Unit.md)
+- [02-Jest](14-Testing/02-Jest.md)
+- [03-RTL](14-Testing/03-RTL.md)
+- [04-Integration](14-Testing/04-Integration.md)
+- [05-E2E](14-Testing/05-E2E.md)
+- [06-Cypress](14-Testing/06-Cypress.md)
+- [07-Playwright](14-Testing/07-Playwright.md)
 
 </details>
 
 <details>
 <summary><a href="15-DevOps/">15-DevOps</a></summary>
 
-- [AWS](15-DevOps/AWS.md)
-- [Azure](15-DevOps/Azure.md)
-- [CI-CD](15-DevOps/CI-CD.md)
-- [Docker](15-DevOps/Docker.md)
-- [GitHub-Actions](15-DevOps/GitHub-Actions.md)
-- [Vercel](15-DevOps/Vercel.md)
+- [01-CI-CD](15-DevOps/01-CI-CD.md)
+- [02-GitHub-Actions](15-DevOps/02-GitHub-Actions.md)
+- [03-Docker](15-DevOps/03-Docker.md)
+- [04-AWS](15-DevOps/04-AWS.md)
+- [05-Azure](15-DevOps/05-Azure.md)
+- [06-Vercel](15-DevOps/06-Vercel.md)
 
 </details>
 
 <details>
 <summary><a href="16-Git/">16-Git</a></summary>
 
-- [Bisect](16-Git/Bisect.md)
-- [Cherry-Pick](16-Git/Cherry-Pick.md)
-- [Commands](16-Git/Commands.md)
-- [FAQs](16-Git/FAQs.md)
-- [Merge](16-Git/Merge.md)
-- [Rebase](16-Git/Rebase.md)
+- [01-Commands](16-Git/01-Commands.md)
+- [02-Merge](16-Git/02-Merge.md)
+- [03-Rebase](16-Git/03-Rebase.md)
+- [04-Cherry-Pick](16-Git/04-Cherry-Pick.md)
+- [05-Bisect](16-Git/05-Bisect.md)
+- [06-FAQs](16-Git/06-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="17-DSA/">17-DSA</a></summary>
 
-- [Arrays](17-DSA/Arrays/README.md)
-- [Coding-Patterns](17-DSA/Coding-Patterns/README.md)
-- [Dynamic-Programming](17-DSA/Dynamic-Programming/README.md)
-- [Graphs](17-DSA/Graphs/README.md)
-- [LinkedList](17-DSA/LinkedList/README.md)
-- [Sliding-Window](17-DSA/Sliding-Window/README.md)
-- [Strings](17-DSA/Strings/README.md)
-- [Trees](17-DSA/Trees/README.md)
-- [Two-Pointer](17-DSA/Two-Pointer/README.md)
+- [01-Arrays](17-DSA/01-Arrays/README.md)
+- [02-Strings](17-DSA/02-Strings/README.md)
+- [03-Two-Pointer](17-DSA/03-Two-Pointer/README.md)
+- [04-Sliding-Window](17-DSA/04-Sliding-Window/README.md)
+- [05-LinkedList](17-DSA/05-LinkedList/README.md)
+- [06-Trees](17-DSA/06-Trees/README.md)
+- [07-Graphs](17-DSA/07-Graphs/README.md)
+- [08-Dynamic-Programming](17-DSA/08-Dynamic-Programming/README.md)
+- [09-Coding-Patterns](17-DSA/09-Coding-Patterns/README.md)
 
 </details>
 
 <details>
 <summary><a href="18-LLD/">18-LLD</a></summary>
 
-- [Logger](18-LLD/Logger.md)
-- [Parking-Lot](18-LLD/Parking-Lot.md)
-- [Rate-Limiter](18-LLD/Rate-Limiter.md)
-- [Shopping-Cart](18-LLD/Shopping-Cart.md)
-- [URL-Shortener](18-LLD/URL-Shortener.md)
+- [01-Logger](18-LLD/01-Logger.md)
+- [02-Rate-Limiter](18-LLD/02-Rate-Limiter.md)
+- [03-URL-Shortener](18-LLD/03-URL-Shortener.md)
+- [04-Parking-Lot](18-LLD/04-Parking-Lot.md)
+- [05-Shopping-Cart](18-LLD/05-Shopping-Cart.md)
 
 </details>
 
 <details>
 <summary><a href="19-HLD/">19-HLD</a></summary>
 
-- [Chat-System](19-HLD/Chat-System.md)
-- [Instagram](19-HLD/Instagram.md)
-- [Notification-System](19-HLD/Notification-System.md)
-- [Uber](19-HLD/Uber.md)
-- [WhatsApp](19-HLD/WhatsApp.md)
-- [YouTube](19-HLD/YouTube.md)
+- [01-Notification-System](19-HLD/01-Notification-System.md)
+- [02-Chat-System](19-HLD/02-Chat-System.md)
+- [03-WhatsApp](19-HLD/03-WhatsApp.md)
+- [04-Instagram](19-HLD/04-Instagram.md)
+- [05-YouTube](19-HLD/05-YouTube.md)
+- [06-Uber](19-HLD/06-Uber.md)
 
 </details>
 
 <details>
 <summary><a href="20-AI/">20-AI</a></summary>
 
-- [AI-Coding](20-AI/AI-Coding.md)
-- [AI-Tools](20-AI/AI-Tools.md)
-- [LLM](20-AI/LLM.md)
-- [MCP](20-AI/MCP.md)
-- [Prompt-Engineering](20-AI/Prompt-Engineering.md)
-- [RAG](20-AI/RAG.md)
+- [01-LLM](20-AI/01-LLM.md)
+- [02-Prompt-Engineering](20-AI/02-Prompt-Engineering.md)
+- [03-RAG](20-AI/03-RAG.md)
+- [04-MCP](20-AI/04-MCP.md)
+- [05-AI-Coding](20-AI/05-AI-Coding.md)
+- [06-AI-Tools](20-AI/06-AI-Tools.md)
 
 </details>
 
@@ -325,166 +326,166 @@ Click a section to expand it and jump straight to a note.
 <details>
 <summary><a href="22-Leadership/">22-Leadership</a></summary>
 
-- [Code-Review](22-Leadership/Code-Review.md)
-- [Deployment-Strategies](22-Leadership/Deployment-Strategies.md)
-- [Estimation](22-Leadership/Estimation.md)
-- [Incident-Handling](22-Leadership/Incident-Handling.md)
-- [Mentoring](22-Leadership/Mentoring.md)
-- [Requirement-Gathering](22-Leadership/Requirement-Gathering.md)
-- [Risk-Management](22-Leadership/Risk-Management.md)
-- [Sprint-Planning](22-Leadership/Sprint-Planning.md)
-- [Stakeholder-Management](22-Leadership/Stakeholder-Management.md)
-- [System-Ownership](22-Leadership/System-Ownership.md)
-- [Technical-Decisions](22-Leadership/Technical-Decisions.md)
+- [01-Requirement-Gathering](22-Leadership/01-Requirement-Gathering.md)
+- [02-Estimation](22-Leadership/02-Estimation.md)
+- [03-Sprint-Planning](22-Leadership/03-Sprint-Planning.md)
+- [04-Technical-Decisions](22-Leadership/04-Technical-Decisions.md)
+- [05-Code-Review](22-Leadership/05-Code-Review.md)
+- [06-Mentoring](22-Leadership/06-Mentoring.md)
+- [07-Risk-Management](22-Leadership/07-Risk-Management.md)
+- [08-Incident-Handling](22-Leadership/08-Incident-Handling.md)
+- [09-Deployment-Strategies](22-Leadership/09-Deployment-Strategies.md)
+- [10-Stakeholder-Management](22-Leadership/10-Stakeholder-Management.md)
+- [11-System-Ownership](22-Leadership/11-System-Ownership.md)
 
 </details>
 
 <details>
 <summary><a href="23-Release-Engineering/">23-Release-Engineering</a></summary>
 
-- [Deployment](23-Release-Engineering/Deployment/README.md)
-- [Environment-Management](23-Release-Engineering/Environment-Management/README.md)
-- [Git-Strategy](23-Release-Engineering/Git-Strategy/README.md)
-- [Incident-Management](23-Release-Engineering/Incident-Management/README.md)
-- [Versioning](23-Release-Engineering/Versioning/README.md)
+- [01-Git-Strategy](23-Release-Engineering/01-Git-Strategy/README.md)
+- [02-Versioning](23-Release-Engineering/02-Versioning/README.md)
+- [03-Environment-Management](23-Release-Engineering/03-Environment-Management/README.md)
+- [04-Deployment](23-Release-Engineering/04-Deployment/README.md)
+- [05-Incident-Management](23-Release-Engineering/05-Incident-Management/README.md)
 
 </details>
 
 <details>
 <summary><a href="24-Mobile-Engineering/">24-Mobile-Engineering</a></summary>
 
-- [App-Signing](24-Mobile-Engineering/App-Signing.md)
-- [App-Size-Optimization](24-Mobile-Engineering/App-Size-Optimization.md)
-- [Build-Flavors](24-Mobile-Engineering/Build-Flavors.md)
-- [CodePush](24-Mobile-Engineering/CodePush.md)
-- [Crashlytics](24-Mobile-Engineering/Crashlytics.md)
-- [Deep-Linking](24-Mobile-Engineering/Deep-Linking.md)
-- [Expo-Updates](24-Mobile-Engineering/Expo-Updates.md)
-- [FAQs](24-Mobile-Engineering/FAQs.md)
-- [Hermes](24-Mobile-Engineering/Hermes.md)
-- [Metro](24-Mobile-Engineering/Metro.md)
-- [Native-Modules](24-Mobile-Engineering/Native-Modules.md)
-- [OTA-Updates](24-Mobile-Engineering/OTA-Updates.md)
-- [Performance](24-Mobile-Engineering/Performance.md)
-- [Push-Notifications](24-Mobile-Engineering/Push-Notifications.md)
-- [React-Native-Architecture](24-Mobile-Engineering/React-Native-Architecture.md)
-- [Regional-Rollout](24-Mobile-Engineering/Regional-Rollout.md)
-- [Staged-Rollout](24-Mobile-Engineering/Staged-Rollout.md)
-- [Store-Review](24-Mobile-Engineering/Store-Review.md)
+- [01-React-Native-Architecture](24-Mobile-Engineering/01-React-Native-Architecture.md)
+- [02-Native-Modules](24-Mobile-Engineering/02-Native-Modules.md)
+- [03-Metro](24-Mobile-Engineering/03-Metro.md)
+- [04-Hermes](24-Mobile-Engineering/04-Hermes.md)
+- [05-Build-Flavors](24-Mobile-Engineering/05-Build-Flavors.md)
+- [06-App-Signing](24-Mobile-Engineering/06-App-Signing.md)
+- [07-App-Size-Optimization](24-Mobile-Engineering/07-App-Size-Optimization.md)
+- [08-Performance](24-Mobile-Engineering/08-Performance.md)
+- [09-Deep-Linking](24-Mobile-Engineering/09-Deep-Linking.md)
+- [10-Push-Notifications](24-Mobile-Engineering/10-Push-Notifications.md)
+- [11-CodePush](24-Mobile-Engineering/11-CodePush.md)
+- [12-Expo-Updates](24-Mobile-Engineering/12-Expo-Updates.md)
+- [13-OTA-Updates](24-Mobile-Engineering/13-OTA-Updates.md)
+- [14-Staged-Rollout](24-Mobile-Engineering/14-Staged-Rollout.md)
+- [15-Regional-Rollout](24-Mobile-Engineering/15-Regional-Rollout.md)
+- [16-Store-Review](24-Mobile-Engineering/16-Store-Review.md)
+- [17-Crashlytics](24-Mobile-Engineering/17-Crashlytics.md)
+- [18-FAQs](24-Mobile-Engineering/18-FAQs.md)
 
 </details>
 
 <details>
 <summary><a href="25-Architecture/">25-Architecture</a></summary>
 
-- [API-Gateway](25-Architecture/API-Gateway.md)
-- [Authentication](25-Architecture/Authentication.md)
-- [Authorization](25-Architecture/Authorization.md)
-- [BFF](25-Architecture/BFF.md)
-- [Design-System](25-Architecture/Design-System.md)
-- [Event-Driven](25-Architecture/Event-Driven.md)
-- [Feature-Flags](25-Architecture/Feature-Flags.md)
-- [Microfrontend](25-Architecture/Microfrontend.md)
-- [Module-Federation](25-Architecture/Module-Federation.md)
-- [Monolith](25-Architecture/Monolith.md)
-- [Monorepo](25-Architecture/Monorepo.md)
-- [Multi-Tenant](25-Architecture/Multi-Tenant.md)
-- [Nx](25-Architecture/Nx.md)
-- [Shared-Libraries](25-Architecture/Shared-Libraries.md)
-- [Turborepo](25-Architecture/Turborepo.md)
-- [White-Labelling](25-Architecture/White-Labelling.md)
-- [Case-Studies](25-Architecture/Case-Studies/README.md)
+- [01-Monolith](25-Architecture/01-Monolith.md)
+- [02-Monorepo](25-Architecture/02-Monorepo.md)
+- [03-Microfrontend](25-Architecture/03-Microfrontend.md)
+- [04-Module-Federation](25-Architecture/04-Module-Federation.md)
+- [05-Nx](25-Architecture/05-Nx.md)
+- [06-Turborepo](25-Architecture/06-Turborepo.md)
+- [07-Shared-Libraries](25-Architecture/07-Shared-Libraries.md)
+- [08-BFF](25-Architecture/08-BFF.md)
+- [09-API-Gateway](25-Architecture/09-API-Gateway.md)
+- [10-Event-Driven](25-Architecture/10-Event-Driven.md)
+- [11-Multi-Tenant](25-Architecture/11-Multi-Tenant.md)
+- [12-White-Labelling](25-Architecture/12-White-Labelling.md)
+- [13-Feature-Flags](25-Architecture/13-Feature-Flags.md)
+- [14-Design-System](25-Architecture/14-Design-System.md)
+- [15-Authentication](25-Architecture/15-Authentication.md)
+- [16-Authorization](25-Architecture/16-Authorization.md)
+- [17-Case-Studies](25-Architecture/17-Case-Studies/README.md)
 
 </details>
 
 <details>
 <summary><a href="26-Production/">26-Production</a></summary>
 
-- [Analytics](26-Production/Analytics.md)
-- [Crash-Reporting](26-Production/Crash-Reporting.md)
-- [Distributed-Tracing](26-Production/Distributed-Tracing.md)
-- [Error-Boundaries](26-Production/Error-Boundaries.md)
-- [Feature-Toggle](26-Production/Feature-Toggle.md)
-- [Logging](26-Production/Logging.md)
-- [Monitoring](26-Production/Monitoring.md)
-- [Observability](26-Production/Observability.md)
-- [Performance-Monitoring](26-Production/Performance-Monitoring.md)
-- [Production-Checklist](26-Production/Production-Checklist.md)
-- [Sentry](26-Production/Sentry.md)
+- [01-Logging](26-Production/01-Logging.md)
+- [02-Monitoring](26-Production/02-Monitoring.md)
+- [03-Observability](26-Production/03-Observability.md)
+- [04-Error-Boundaries](26-Production/04-Error-Boundaries.md)
+- [05-Crash-Reporting](26-Production/05-Crash-Reporting.md)
+- [06-Sentry](26-Production/06-Sentry.md)
+- [07-Performance-Monitoring](26-Production/07-Performance-Monitoring.md)
+- [08-Distributed-Tracing](26-Production/08-Distributed-Tracing.md)
+- [09-Analytics](26-Production/09-Analytics.md)
+- [10-Feature-Toggle](26-Production/10-Feature-Toggle.md)
+- [11-Production-Checklist](26-Production/11-Production-Checklist.md)
 
 </details>
 
 <details>
 <summary><a href="27-Solution-Design/">27-Solution-Design</a></summary>
 
-- [API-Contract](27-Solution-Design/API-Contract.md)
-- [Accessibility-Review](27-Solution-Design/Accessibility-Review.md)
-- [Capacity-Planning](27-Solution-Design/Capacity-Planning.md)
-- [Cost-Optimization](27-Solution-Design/Cost-Optimization.md)
-- [Estimation](27-Solution-Design/Estimation.md)
-- [HLD](27-Solution-Design/HLD.md)
-- [LLD](27-Solution-Design/LLD.md)
-- [Performance-Budget](27-Solution-Design/Performance-Budget.md)
-- [Requirement-Gathering](27-Solution-Design/Requirement-Gathering.md)
-- [Security-Review](27-Solution-Design/Security-Review.md)
-- [Sprint-Planning](27-Solution-Design/Sprint-Planning.md)
-- [Trade-Offs](27-Solution-Design/Trade-Offs.md)
+- [01-Requirement-Gathering](27-Solution-Design/01-Requirement-Gathering.md)
+- [02-Estimation](27-Solution-Design/02-Estimation.md)
+- [03-Sprint-Planning](27-Solution-Design/03-Sprint-Planning.md)
+- [04-HLD](27-Solution-Design/04-HLD.md)
+- [05-LLD](27-Solution-Design/05-LLD.md)
+- [06-API-Contract](27-Solution-Design/06-API-Contract.md)
+- [07-Capacity-Planning](27-Solution-Design/07-Capacity-Planning.md)
+- [08-Performance-Budget](27-Solution-Design/08-Performance-Budget.md)
+- [09-Cost-Optimization](27-Solution-Design/09-Cost-Optimization.md)
+- [10-Security-Review](27-Solution-Design/10-Security-Review.md)
+- [11-Accessibility-Review](27-Solution-Design/11-Accessibility-Review.md)
+- [12-Trade-Offs](27-Solution-Design/12-Trade-Offs.md)
 
 </details>
 
 <details>
 <summary><a href="28-Real-World-Scenarios/">28-Real-World-Scenarios</a></summary>
 
-- [API-Versioning](28-Real-World-Scenarios/API-Versioning.md)
-- [Angular-to-React](28-Real-World-Scenarios/Angular-to-React.md)
-- [Architecture-Decisions](28-Real-World-Scenarios/Architecture-Decisions.md)
-- [Breaking-Change](28-Real-World-Scenarios/Breaking-Change.md)
-- [Failed-Deployment](28-Real-World-Scenarios/Failed-Deployment.md)
-- [Large-Scale-Migration](28-Real-World-Scenarios/Large-Scale-Migration.md)
-- [Legacy-Code](28-Real-World-Scenarios/Legacy-Code.md)
-- [Memory-Leak](28-Real-World-Scenarios/Memory-Leak.md)
-- [Mobile-Hotfix](28-Real-World-Scenarios/Mobile-Hotfix.md)
-- [Performance-Investigation](28-Real-World-Scenarios/Performance-Investigation.md)
-- [Production-Incident](28-Real-World-Scenarios/Production-Incident.md)
-- [React-Upgrade](28-Real-World-Scenarios/React-Upgrade.md)
-- [Rollback-Decision](28-Real-World-Scenarios/Rollback-Decision.md)
-- [Scaling-Frontend-Team](28-Real-World-Scenarios/Scaling-Frontend-Team.md)
-- [Slow-Build](28-Real-World-Scenarios/Slow-Build.md)
-- [Zero-Downtime-Release](28-Real-World-Scenarios/Zero-Downtime-Release.md)
+- [01-Production-Incident](28-Real-World-Scenarios/01-Production-Incident.md)
+- [02-Failed-Deployment](28-Real-World-Scenarios/02-Failed-Deployment.md)
+- [03-Rollback-Decision](28-Real-World-Scenarios/03-Rollback-Decision.md)
+- [04-Zero-Downtime-Release](28-Real-World-Scenarios/04-Zero-Downtime-Release.md)
+- [05-Memory-Leak](28-Real-World-Scenarios/05-Memory-Leak.md)
+- [06-Performance-Investigation](28-Real-World-Scenarios/06-Performance-Investigation.md)
+- [07-Slow-Build](28-Real-World-Scenarios/07-Slow-Build.md)
+- [08-Breaking-Change](28-Real-World-Scenarios/08-Breaking-Change.md)
+- [09-API-Versioning](28-Real-World-Scenarios/09-API-Versioning.md)
+- [10-Legacy-Code](28-Real-World-Scenarios/10-Legacy-Code.md)
+- [11-Large-Scale-Migration](28-Real-World-Scenarios/11-Large-Scale-Migration.md)
+- [12-Angular-to-React](28-Real-World-Scenarios/12-Angular-to-React.md)
+- [13-React-Upgrade](28-Real-World-Scenarios/13-React-Upgrade.md)
+- [14-Mobile-Hotfix](28-Real-World-Scenarios/14-Mobile-Hotfix.md)
+- [15-Architecture-Decisions](28-Real-World-Scenarios/15-Architecture-Decisions.md)
+- [16-Scaling-Frontend-Team](28-Real-World-Scenarios/16-Scaling-Frontend-Team.md)
 
 </details>
 
 <details>
 <summary><a href="29-Interview-Coding/">29-Interview-Coding</a></summary>
 
-- [Angular](29-Interview-Coding/Angular/README.md)
-- [HTML-CSS](29-Interview-Coding/HTML-CSS/README.md)
-- **JavaScript**
-  - [01-Output-Based](29-Interview-Coding/JavaScript/01-Output-Based/README.md)
-  - [02-Debugging](29-Interview-Coding/JavaScript/02-Debugging/README.md)
-  - [03-Code-Implementation](29-Interview-Coding/JavaScript/03-Code-Implementation/README.md)
-  - [04-Polyfills](29-Interview-Coding/JavaScript/04-Polyfills/README.md)
-  - [05-Machine-Coding](29-Interview-Coding/JavaScript/05-Machine-Coding/README.md)
-  - [06-Performance](29-Interview-Coding/JavaScript/06-Performance/README.md)
-  - [07-Refactoring](29-Interview-Coding/JavaScript/07-Refactoring/README.md)
-  - [08-Real-World-Problems](29-Interview-Coding/JavaScript/08-Real-World-Problems/README.md)
-- [NextJS](29-Interview-Coding/NextJS/README.md)
-- **React**
-  - [01-Output-Based](29-Interview-Coding/React/01-Output-Based/README.md)
-  - [02-Debugging](29-Interview-Coding/React/02-Debugging/README.md)
-  - [03-Hooks](29-Interview-Coding/React/03-Hooks/README.md)
-  - [04-Component-Building](29-Interview-Coding/React/04-Component-Building/README.md)
-  - [05-Performance](29-Interview-Coding/React/05-Performance/README.md)
-  - [06-State-Management](29-Interview-Coding/React/06-State-Management/README.md)
-  - [07-Machine-Coding](29-Interview-Coding/React/07-Machine-Coding/README.md)
-  - [08-Architecture](29-Interview-Coding/React/08-Architecture/README.md)
-- [React-Native](29-Interview-Coding/React-Native/README.md)
-- **TypeScript**
-  - [01-Output-Based](29-Interview-Coding/TypeScript/01-Output-Based/README.md)
-  - [02-Type-Challenges](29-Interview-Coding/TypeScript/02-Type-Challenges/README.md)
-  - [03-Debugging](29-Interview-Coding/TypeScript/03-Debugging/README.md)
-  - [04-Implementation](29-Interview-Coding/TypeScript/04-Implementation/README.md)
-  - [05-Real-World](29-Interview-Coding/TypeScript/05-Real-World/README.md)
+- **01-JavaScript**
+  - [01-Output-Based](29-Interview-Coding/01-JavaScript/01-Output-Based/README.md)
+  - [02-Debugging](29-Interview-Coding/01-JavaScript/02-Debugging/README.md)
+  - [03-Code-Implementation](29-Interview-Coding/01-JavaScript/03-Code-Implementation/README.md)
+  - [04-Polyfills](29-Interview-Coding/01-JavaScript/04-Polyfills/README.md)
+  - [05-Machine-Coding](29-Interview-Coding/01-JavaScript/05-Machine-Coding/README.md)
+  - [06-Performance](29-Interview-Coding/01-JavaScript/06-Performance/README.md)
+  - [07-Refactoring](29-Interview-Coding/01-JavaScript/07-Refactoring/README.md)
+  - [08-Real-World-Problems](29-Interview-Coding/01-JavaScript/08-Real-World-Problems/README.md)
+- **02-TypeScript**
+  - [01-Output-Based](29-Interview-Coding/02-TypeScript/01-Output-Based/README.md)
+  - [02-Type-Challenges](29-Interview-Coding/02-TypeScript/02-Type-Challenges/README.md)
+  - [03-Debugging](29-Interview-Coding/02-TypeScript/03-Debugging/README.md)
+  - [04-Implementation](29-Interview-Coding/02-TypeScript/04-Implementation/README.md)
+  - [05-Real-World](29-Interview-Coding/02-TypeScript/05-Real-World/README.md)
+- **03-React**
+  - [01-Output-Based](29-Interview-Coding/03-React/01-Output-Based/README.md)
+  - [02-Debugging](29-Interview-Coding/03-React/02-Debugging/README.md)
+  - [03-Hooks](29-Interview-Coding/03-React/03-Hooks/README.md)
+  - [04-Component-Building](29-Interview-Coding/03-React/04-Component-Building/README.md)
+  - [05-Performance](29-Interview-Coding/03-React/05-Performance/README.md)
+  - [06-State-Management](29-Interview-Coding/03-React/06-State-Management/README.md)
+  - [07-Machine-Coding](29-Interview-Coding/03-React/07-Machine-Coding/README.md)
+  - [08-Architecture](29-Interview-Coding/03-React/08-Architecture/README.md)
+- [04-NextJS](29-Interview-Coding/04-NextJS/README.md)
+- [05-Angular](29-Interview-Coding/05-Angular/README.md)
+- [06-React-Native](29-Interview-Coding/06-React-Native/README.md)
+- [07-HTML-CSS](29-Interview-Coding/07-HTML-CSS/README.md)
 
 </details>
 
