@@ -27,19 +27,48 @@ JavaScript is a high-level, interpreted programming language used to create inte
 
 #### Answer
 
-Primitive:
-- String
-- Number
-- Boolean
-- Undefined
-- Null
-- Symbol
-- BigInt
+JavaScript has two categories of data types: primitive and non-primitive. The `typeof` operator tells you a variable's type at runtime.
 
-Non-Primitive:
-- Object
-- Array
-- Function
+Primitive types:
+- **String** — a sequence of characters, written with single or double quotes (e.g. `"Vivek"`, `'John'`).
+- **Number** — represents integers and decimals (e.g. `3`, `3.6`).
+- **BigInt** — stores integers beyond `Number`'s safe limit, written with an `n` suffix (e.g. `9007199254740993n`).
+- **Boolean** — `true` or `false`, used for conditional logic.
+- **Undefined** — the default value of a variable that's declared but not assigned.
+- **Null** — represents an intentional absence of value.
+- **Symbol** (ES6) — a unique and immutable value, often used as object property keys.
+
+Non-primitive types (can hold multiple/complex values):
+- **Object** — a collection of key-value pairs.
+- **Array** — an ordered list of values (itself an object).
+- **Function** — a callable object.
+
+#### Code Example
+
+```js
+typeof "John Doe";      // "string"
+typeof 3.14;            // "number"
+typeof true;            // "boolean"
+typeof 9007199254740993n; // "bigint"
+typeof undefined;       // "undefined"
+typeof null;            // "object" (long-standing JS bug)
+typeof Symbol("id");    // "symbol"
+
+const obj = {
+  x: 43,
+  y: "Hello world!",
+  z: function () {
+    return this.x;
+  },
+};
+
+const arr = [5, "Hello", true, 4.1];
+```
+
+#### Follow-up Questions
+
+- Why does `typeof null` return `"object"`?
+- How is `BigInt` different from `Number`, and when would you need it?
 
 ### Q3. Difference between var, let, and const?
 

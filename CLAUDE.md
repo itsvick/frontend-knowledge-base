@@ -30,6 +30,15 @@ real-world scenarios, so the content can be reviewed and expanded over time.
 
 ## Conventions
 
+- When adding a new question, first figure out where it belongs: identify the
+  correct top-level section, then the correct subfolder/file within it (e.g.
+  "What are the different data types in JavaScript?" belongs in
+  `01-JavaScript/01-Basics/README.md`). Then check the existing questions
+  already in that file and insert the new one at the appropriate numbered
+  position among them based on topic/difficulty ordering, rather than
+  defaulting to appending it at the end — renumbering subsequent `### Qn.`
+  headings if needed. Only skip this placement/ordering step if the user
+  explicitly says where the question should go.
 - Prefer consolidating notes into the section/subfolder's `README.md` rather
   than creating a separate `.md` file per topic — the user does not want a
   proliferation of small files. Only split a topic into its own file if the
@@ -54,6 +63,11 @@ real-world scenarios, so the content can be reviewed and expanded over time.
   itself. `Code Example`, `Follow-up Questions`, and `References` are
   optional — omit the subsection heading entirely (don't leave an empty
   `-` placeholder) when there's no real content for it.
+- A short sample snippet illustrating the answer can just live inline inside
+  `#### Answer` — it doesn't need its own `#### Code Example` subsection every
+  time. Reach for a separate `#### Code Example` only when the code is
+  substantial enough (e.g. a longer runnable example) to warrant standing on
+  its own apart from the explanation.
 - New/updated notes should follow the existing template shape: Overview, Key
   Concepts, Interview Q&A (per-question Answer/Follow-ups/Code
   Example/References), Common Pitfalls.

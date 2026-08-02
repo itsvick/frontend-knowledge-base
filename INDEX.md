@@ -153,6 +153,7 @@ numbered in the order they're meant to be studied.
 - [06-Standalone](08-Angular/06-Standalone.md)
 - [07-Signals](08-Angular/07-Signals.md)
 - [08-FAQs](08-Angular/08-FAQs.md)
+- [09-HTTP-Interceptors](08-Angular/09-HTTP-Interceptors.md)
 
 </details>
 
