@@ -70,7 +70,38 @@ const arr = [5, "Hello", true, 4.1];
 - Why does `typeof null` return `"object"`?
 - How is `BigInt` different from `Number`, and when would you need it?
 
-### Q3. Difference between var, let, and const?
+### Q3. Deep copy vs shallow copy — what's the difference?
+
+#### Answer
+
+A **shallow copy** duplicates only the top level of an object/array — nested objects/arrays are still shared by reference with the original, so mutating a nested value affects both copies. A **deep copy** recursively duplicates every nested level, so the copy shares no references with the original at any depth.
+
+Common ways to shallow-copy: spread (`{...obj}`, `[...arr]`), `Object.assign({}, obj)`, `Array.prototype.slice()`.
+
+Common ways to deep-copy: `structuredClone(obj)` (modern, handles most types including circular references), `JSON.parse(JSON.stringify(obj))` (simple but drops functions/`undefined`/`Symbol`/dates become strings), or a recursive copy/library (e.g. lodash `cloneDeep`).
+
+#### Code Example
+
+```js
+const original = { name: "Sam", address: { city: "Pune" } };
+
+// Shallow copy — nested object is still shared
+const shallow = { ...original };
+shallow.address.city = "Mumbai";
+console.log(original.address.city); // "Mumbai" — original mutated too
+
+// Deep copy — fully independent
+const deep = structuredClone(original);
+deep.address.city = "Delhi";
+console.log(original.address.city); // "Mumbai" — original untouched
+```
+
+#### Follow-up Questions
+
+- Why does `JSON.parse(JSON.stringify(obj))` fail on objects containing functions or `Date`s?
+- How does `structuredClone` handle circular references compared to `JSON.stringify`?
+
+### Q4. Difference between var, let, and const?
 
 #### Answer
 
@@ -93,7 +124,7 @@ function example() {
 }
 ```
 
-### Q4. What is the difference between == and ===?
+### Q5. What is the difference between == and ===?
 
 #### Answer
 
@@ -107,7 +138,7 @@ function example() {
 5 === "5";  // false (different types)
 ```
 
-### Q5. What is hoisting?
+### Q6. What is hoisting?
 
 #### Answer
 
@@ -146,7 +177,7 @@ b = 23; // ReferenceError: b is not defined
 var b;
 ```
 
-### Q6. What is the difference between null and undefined?
+### Q7. What is the difference between null and undefined?
 
 #### Answer
 
@@ -162,7 +193,7 @@ let c = null;
 console.log(typeof c); // "object" (quirk of JS)
 ```
 
-### Q7. What is this in JavaScript?
+### Q8. What is this in JavaScript?
 
 #### Answer
 
@@ -179,6 +210,44 @@ const obj = {
 };
 obj.greet();
 ```
+
+### Q9. How does event delegation work in JavaScript? Why is it efficient?
+
+#### Answer
+
+Event delegation relies on **event bubbling** — an event fired on a child element propagates up through its ancestors. Instead of attaching a listener to every individual child, you attach a single listener to a common parent and use `event.target` to detect which child actually triggered the event, then handle it accordingly (often filtering with `.matches()` or `.closest()`).
+
+It's efficient for two main reasons:
+- **Fewer listeners, less memory** — one listener on the parent replaces N listeners on N children, which matters when a list has hundreds/thousands of items.
+- **Works for dynamically added elements** — new children added later are automatically covered, since the listener lives on the parent and doesn't need to be re-attached to every new element.
+
+#### Code Example
+
+```js
+// Without delegation: one listener per <li>, and new items need their own listener
+document.querySelectorAll("li").forEach((li) => {
+  li.addEventListener("click", () => console.log(li.textContent));
+});
+
+// With delegation: one listener on the parent, handles existing and future <li>s
+const list = document.querySelector("ul");
+list.addEventListener("click", (event) => {
+  const li = event.target.closest("li");
+  if (!li || !list.contains(li)) return;
+  console.log(li.textContent);
+});
+
+// Adding a new item later still works, no extra listener needed
+const newItem = document.createElement("li");
+newItem.textContent = "New item";
+list.appendChild(newItem);
+```
+
+#### Follow-up Questions
+
+- What's the difference between event bubbling and event capturing?
+- When would delegation *not* work (e.g. events that don't bubble, like `focus`/`blur`)?
+- How does `event.target` differ from `event.currentTarget` in a delegated handler?
 
 ## Common Pitfalls
 
