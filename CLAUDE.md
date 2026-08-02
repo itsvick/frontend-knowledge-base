@@ -39,6 +39,21 @@ real-world scenarios, so the content can be reviewed and expanded over time.
   defaulting to appending it at the end — renumbering subsequent `### Qn.`
   headings if needed. Only skip this placement/ordering step if the user
   explicitly says where the question should go.
+- Before adding a new question, check whether it (or a close variant of it)
+  already exists in that file/section. If it does, don't add a duplicate —
+  decide instead based on what the new question adds:
+  - If the existing question already covers the same ground, skip adding a
+    new heading; instead fold in any new value.
+  - If the new phrasing/angle is clearly better (e.g. sharper wording, more
+    interview-relevant framing) or supersedes the old one, replace the
+    existing question heading/content rather than adding a second entry.
+  - Apply the same logic to answers: if the existing `#### Answer` is
+    missing a point, nuance, or example that the newly given answer
+    includes, merge that missing point into the existing answer rather than
+    duplicating or fully overwriting it — improve in place.
+  - Only keep both as separate questions if they are genuinely distinct
+    (different sub-topics or angles worth testing separately), not just
+    reworded duplicates.
 - Prefer consolidating notes into the section/subfolder's `README.md` rather
   than creating a separate `.md` file per topic — the user does not want a
   proliferation of small files. Only split a topic into its own file if the
