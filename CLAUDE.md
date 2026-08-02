@@ -40,15 +40,23 @@ real-world scenarios, so the content can be reviewed and expanded over time.
   worth it (e.g. `README.md` is getting unwieldy, or the topic warrants
   significant depth of its own), don't just create it — ask the user first
   and let them decide before splitting it out.
-- When a `README.md` covers multiple Q&A topics, keep the same overall
-  template shape but fold everything into shared sections: one `## Overview`,
-  one merged `## Key Concepts`, all questions under one
-  `## Interview Questions & Answers` (numbered `### Q1.`, `### Q2.`, ...),
-  all snippets under one `## Code Examples` (each snippet commented with
-  which question it's for), one merged `## Common Pitfalls`, one
-  `## References`.
+- When a `README.md` covers multiple Q&A topics, keep one shared
+  `## Overview`, one merged `## Key Concepts`, and one merged
+  `## Common Pitfalls` for the whole file — but apply
+  `Question-Template.md`'s shape **per question, not per file**: each
+  question is a `### Qn. {title}` heading under
+  `## Interview Questions & Answers`, nesting its own subsections in this
+  order: `#### Answer`, `#### Code Example`, `#### Follow-up Questions`,
+  `#### References`. Do not pool all code snippets into one shared
+  `## Code Examples` section or all sources into one shared `##
+  References` section — each question owns its own.
+- Per question, only `Answer` is mandatory alongside the question heading
+  itself. `Code Example`, `Follow-up Questions`, and `References` are
+  optional — omit the subsection heading entirely (don't leave an empty
+  `-` placeholder) when there's no real content for it.
 - New/updated notes should follow the existing template shape: Overview, Key
-  Concepts, Interview Q&A, Code Examples, Common Pitfalls, References.
+  Concepts, Interview Q&A (per-question Answer/Follow-ups/Code
+  Example/References), Common Pitfalls.
 - Most section folders currently contain only a stub `README.md` describing
   suggested files to add — treat these as scaffolding to fill in with the
   above consolidated format, not as a prompt to create one file per

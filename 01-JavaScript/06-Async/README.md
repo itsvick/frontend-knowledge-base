@@ -17,24 +17,29 @@ How JavaScript handles operations that don't complete immediately: the sync/asyn
 
 ### Q1. What is the difference between synchronous and asynchronous JavaScript?
 
-**Answer:**
+#### Answer
+
 - Synchronous: Executes line by line.
 - Asynchronous: Doesn't block execution (e.g., `setTimeout`, Promises, `async`/`await`).
 
-### Q2. What are async and await?
-
-**Answer:** They simplify working with Promises.
-
-## Code Examples
+#### Code Example
 
 ```js
-// Q1: sync vs async
 console.log("1");
 setTimeout(() => console.log("2"), 0); // deferred to the event loop
 console.log("3");
 // Output: 1, 3, 2
+```
 
-// Q2: async/await
+### Q2. What are async and await?
+
+#### Answer
+
+They simplify working with Promises.
+
+#### Code Example
+
+```js
 async function getData() {
   const res = await fetch(url);
 }
@@ -45,7 +50,3 @@ async function getData() {
 - Assuming `setTimeout(fn, 0)` runs immediately — it still waits for the current call stack to clear.
 - Forgetting `try`/`catch` around `await`, so rejected Promises become unhandled errors.
 - Awaiting Promises sequentially when they could run concurrently with `Promise.all`.
-
-## References
-
--

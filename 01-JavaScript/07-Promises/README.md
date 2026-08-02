@@ -16,9 +16,11 @@ A Promise represents the eventual completion or failure of an asynchronous opera
 
 ### Q1. What is a Promise?
 
-**Answer:** A Promise represents the eventual completion or failure of an asynchronous operation.
+#### Answer
 
-## Code Examples
+A Promise represents the eventual completion or failure of an asynchronous operation.
+
+#### Code Example
 
 ```js
 fetch(url)
@@ -30,7 +32,3 @@ fetch(url)
 
 - Forgetting to return a value/Promise inside a `.then()` chain, breaking the chain.
 - Not adding a `.catch()`, leading to unhandled Promise rejections.
-
-## References
-
--

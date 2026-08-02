@@ -17,35 +17,51 @@ Modern JavaScript syntax introduced from ES6 onward: arrow functions, template l
 
 ### Q1. What is an arrow function?
 
-**Answer:** A shorter syntax for writing functions.
+#### Answer
+
+A shorter syntax for writing functions.
+
+#### Code Example
+
+```js
+const add = (a, b) => a + b;
+```
 
 ### Q2. What are template literals?
 
-**Answer:** Strings enclosed in backticks (`` ` ``) that support interpolation.
+#### Answer
+
+Strings enclosed in backticks (`` ` ``) that support interpolation.
+
+#### Code Example
+
+```js
+let name = "John";
+console.log(`Hello ${name}`);
+```
 
 ### Q3. What is the spread operator (...)?
 
-**Answer:** It expands elements from an array or object.
+#### Answer
+
+It expands elements from an array or object.
+
+#### Code Example
+
+```js
+const arr = [1, 2];
+const newArr = [...arr, 3]; // [1, 2, 3]
+```
 
 ### Q4. What is destructuring?
 
-**Answer:** Extracting values from arrays or objects.
+#### Answer
 
-## Code Examples
+Extracting values from arrays or objects.
+
+#### Code Example
 
 ```js
-// Q1: arrow function
-const add = (a, b) => a + b;
-
-// Q2: template literal
-let name = "John";
-console.log(`Hello ${name}`);
-
-// Q3: spread operator
-const arr = [1, 2];
-const newArr = [...arr, 3]; // [1, 2, 3]
-
-// Q4: destructuring
 const person = { name: "Sam", age: 25 };
 const { name: personName, age } = person;
 ```
@@ -55,7 +71,3 @@ const { name: personName, age } = person;
 - Using an arrow function as an object method when you need `this` to refer to the object.
 - Assuming spread produces a deep copy — it only shallow-copies; nested objects/arrays are still shared by reference.
 - Destructuring a property that doesn't exist yields `undefined` instead of throwing, which can hide typos.
-
-## References
-
--

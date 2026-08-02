@@ -16,9 +16,11 @@ A closure is a function that remembers variables from its outer (lexical) scope 
 
 ### Q1. What is a closure?
 
-**Answer:** A closure is a function that remembers variables from its outer scope even after the outer function has finished executing.
+#### Answer
 
-## Code Examples
+A closure is a function that remembers variables from its outer scope even after the outer function has finished executing.
+
+#### Code Example
 
 ```js
 function outer() {
@@ -38,7 +40,3 @@ counter(); // 2
 
 - Creating closures over a shared `var` inside loops, so every callback captures the same final value instead of a per-iteration one (fixed by using `let`).
 - Unintentionally keeping large objects alive in memory because a closure still references them.
-
-## References
-
--
