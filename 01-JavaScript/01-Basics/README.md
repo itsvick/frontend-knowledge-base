@@ -105,11 +105,17 @@ console.log(original.address.city); // "Mumbai" — original untouched
 
 #### Answer
 
+`var` has been in JavaScript since the beginning; `let` and `const` were introduced in ES2015 (ES6).
+
 | var | let | const |
 |---|---|---|
 | Function scoped | Block scoped | Block scoped |
 | Can be redeclared | Cannot be redeclared | Cannot be redeclared |
 | Can be updated | Can be updated | Cannot be updated |
+
+`var` is function-scoped — a variable declared with `var` anywhere inside a function is accessible throughout that whole function, regardless of which block (`if`, `for`, etc.) it was declared in. `let`/`const` are block-scoped — accessible only within the `{ }` block where they're declared.
+
+All three are hoisted, but differently: `var` is hoisted and initialized to `undefined`, so it can be referenced (as `undefined`) before its declaration line. `let`/`const` are hoisted but left uninitialized — the span from the top of the block to the declaration line is the **temporal dead zone (TDZ)**, and referencing the variable there throws a `ReferenceError` instead of returning `undefined`.
 
 #### Code Example
 
@@ -120,8 +126,14 @@ function example() {
     let y = 2;   // block scoped — only visible inside the if block
   }
   console.log(x); // 1
-  // console.log(y); // ReferenceError
+  // console.log(y); // ReferenceError: y is not defined
 }
+
+console.log(a); // undefined — var is hoisted and initialized
+var a = 1;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization (TDZ)
+let b = 2;
 ```
 
 ### Q5. What is the difference between == and ===?
@@ -138,7 +150,85 @@ function example() {
 5 === "5";  // false (different types)
 ```
 
-### Q6. What is hoisting?
+### Q6. What is implicit type coercion in JavaScript?
+
+#### Answer
+
+Implicit type coercion is JavaScript's automatic conversion of a value from one data type to another when an expression's operands are of different types. It commonly shows up in three places: string coercion, boolean coercion, and equality coercion.
+
+**String coercion** — happens with the `+` operator: if either operand is a string, the other operand is converted to a string and `+` concatenates instead of adding numerically (e.g. `3 + "3"` → `"33"`, `24 + "Hello"` → `"24Hello"`). Every other arithmetic operator (`-`, `*`, `/`) instead coerces string operands to numbers (e.g. `3 - "3"` → `0`).
+
+**Boolean coercion** — happens in `if` conditions, loop checks, ternaries, and logical operators (`&&`, `||`), based on a value's "truthiness". Every value is truthy except the falsy values: `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`. Unlike many other languages, JS's logical operators don't return `true`/`false` — they return one of the operands: `||` returns the first truthy operand (or the last operand if all are falsy); `&&` returns the first falsy operand (or the last operand if all are truthy).
+
+**Equality coercion** — happens with `==`: both operands are converted to the same type before comparing, so `12 == "12"` is `true`. `===` performs no conversion, so `226 === "226"` is `false` since the types differ.
+
+#### Code Example
+
+```js
+// String coercion
+3 + "3";        // "33" — number coerced to string, then concatenated
+24 + "Hello";   // "24Hello"
+"Vivek" + " Bisht"; // "Vivek Bisht" — both strings, concatenates as usual
+3 - "3";        // 0 — "-" coerces the string to a number instead
+
+// Boolean coercion
+var x = 0;
+var y = 23;
+if (x) { console.log(x); }  // skipped — 0 is falsy
+if (y) { console.log(y); }  // runs — 23 is truthy
+
+x = 220;
+y = "Hello";
+var z = undefined;
+x || y;  // 220 — first operand is truthy, so it's returned
+x || z;  // 220 — same reason
+x && y;  // "Hello" — both truthy, so the second operand is returned
+y && z;  // undefined — second operand is falsy, so it's returned
+
+// Equality coercion
+var a = 12;
+var b = "12";
+a == b;   // true — both coerced to the same type before comparing
+a === b;  // false — no coercion, types differ ("number" vs "string")
+```
+
+#### Follow-up Questions
+
+- What are all the falsy values in JavaScript?
+- Why does `[] == false` evaluate to `true`?
+- How does `==` compare `null` and `undefined` to each other and to other values?
+
+### Q7. What is the NaN property in JavaScript?
+
+#### Answer
+
+`NaN` ("Not-a-Number") is a special numeric value representing the result of an operation that isn't a legal number, e.g. `0 / 0` or `parseInt("abc")`. Despite its name, `typeof NaN` is `"number"`. `NaN` is also the only value in JavaScript that is never equal to itself (`NaN === NaN` is `false`), which is why direct equality checks can't detect it.
+
+To check whether a value is `NaN`, use `isNaN()` (or `Number.isNaN()`). The global `isNaN()` first coerces its argument to a `Number` and then checks whether the result is `NaN` — so it can return `true` for non-number values like `"Hello"` that aren't numeric after coercion, and `false` for values that coerce to a valid number (e.g. `"1"` → `1`, `true` → `1`). `Number.isNaN()` skips the coercion step and only returns `true` for the actual `NaN` value, which is usually the safer choice.
+
+#### Code Example
+
+```js
+typeof NaN;   // "number"
+NaN === NaN;  // false
+
+isNaN("Hello");   // true — "Hello" can't be coerced to a number
+isNaN(345);       // false — already a number
+isNaN("1");       // false — "1" coerces to 1 (a number)
+isNaN(true);      // false — true coerces to 1 (a number)
+isNaN(false);     // false — false coerces to 0 (a number)
+isNaN(undefined); // true — undefined coerces to NaN
+
+Number.isNaN("Hello"); // false — no coercion, and "Hello" isn't the NaN value
+Number.isNaN(NaN);     // true
+```
+
+#### Follow-up Questions
+
+- Why is `NaN === NaN` `false`?
+- How does `Number.isNaN()` differ from the global `isNaN()`?
+
+### Q8. What is hoisting?
 
 #### Answer
 
@@ -177,7 +267,7 @@ b = 23; // ReferenceError: b is not defined
 var b;
 ```
 
-### Q7. What is the difference between null and undefined?
+### Q9. What is the difference between null and undefined?
 
 #### Answer
 
@@ -193,7 +283,7 @@ let c = null;
 console.log(typeof c); // "object" (quirk of JS)
 ```
 
-### Q8. What is this in JavaScript?
+### Q10. What is this in JavaScript?
 
 #### Answer
 
@@ -211,7 +301,7 @@ const obj = {
 obj.greet();
 ```
 
-### Q9. How does event delegation work in JavaScript? Why is it efficient?
+### Q11. How does event delegation work in JavaScript? Why is it efficient?
 
 #### Answer
 
@@ -256,3 +346,5 @@ list.appendChild(newItem);
 - Relying on `==` for comparisons involving `null`/`undefined`/`0`/`""`, which coerce in non-obvious ways.
 - Assuming `let`/`const` aren't hoisted at all — they are, but accessing them before declaration throws (TDZ).
 - Losing `this` when passing a method as a callback (e.g., `setTimeout(obj.greet)`), since it's then called without its object context.
+- Assuming `&&`/`||` return `true`/`false` — they return one of the operands, not a boolean.
+- Forgetting that empty containers are truthy: `if ([])` and `if ({})` both run, even though `[] == false` is `true`.
