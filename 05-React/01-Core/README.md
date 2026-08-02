@@ -43,7 +43,32 @@ then applies only those changes to the real DOM.
 - What is the diffing algorithm, and how does it decide what changed? (see [[07-Reconciliation]])
 - What is reconciliation, and how does it relate to the Virtual DOM?
 
-### Q2. What is the difference between Shadow DOM and Virtual DOM?
+### Q2. Which function is used to create the root of a React application in React 18+, and how does it differ from the legacy ReactDOM.render?
+
+#### Answer
+
+`createRoot` (from `react-dom/client`) creates a root for a React 18+
+application. It replaces the legacy `ReactDOM.render(<App />, container)` API
+and opts the app into React 18's concurrent renderer — enabling automatic
+batching, transitions (`useTransition`), and the newer Suspense behavior,
+none of which the legacy root supports. `ReactDOM.render` still works in
+React 18 for backward compatibility, but logs a deprecation warning and runs
+the app under the old, non-concurrent renderer.
+
+#### Code Example
+
+```jsx
+import { createRoot } from "react-dom/client";
+
+const root = createRoot(document.getElementById("root"));
+root.render(<App />);
+```
+
+#### Follow-up Questions
+
+- What is `hydrateRoot` used for, and how does it differ from `createRoot`?
+
+### Q3. What is the difference between Shadow DOM and Virtual DOM?
 
 #### Answer
 
@@ -56,7 +81,7 @@ They solve different problems and aren't related implementation-wise:
   to diff old vs. new UI state and apply minimal updates to the real DOM.
   It's about **rendering performance**, not encapsulation.
 
-### Q3. What are React Fragments used for?
+### Q4. What are React Fragments used for?
 
 #### Answer
 
@@ -78,7 +103,30 @@ function Row() {
 }
 ```
 
-### Q4. What are props in React? How are they different from state?
+### Q5. How are event handlers typically named and attached in JSX?
+
+#### Answer
+
+JSX event props use **camelCase** (`onClick`, `onChange`, `onSubmit`),
+mirroring the DOM's event names, and take a **function reference** rather
+than an HTML-style string of code. The convention (not enforced by React
+itself) is to name the handler function `handleX` and, when a custom
+component exposes its own event-like prop, to name that prop `onX` (e.g. a
+`Modal` accepting `onClose`).
+
+#### Code Example
+
+```jsx
+function Form({ onSave }) {
+  function handleClick() {
+    onSave();
+  }
+
+  return <button onClick={handleClick}>Save</button>;
+}
+```
+
+### Q6. What are props in React? How are they different from state, and how do you pass data from a parent to a child component?
 
 #### Answer
 
@@ -86,7 +134,9 @@ function Row() {
 child to configure it — they are read-only from the child's perspective and
 owned by the parent. **State** is data owned and managed internally by a
 component, which can change over time (typically due to user interaction)
-and triggers a re-render when updated.
+and triggers a re-render when updated. A parent passes data down simply by
+setting attributes on the child element in JSX; the child reads them via its
+`props` parameter (or destructured arguments).
 
 | | Props | State |
 |---|---|---|
@@ -94,7 +144,19 @@ and triggers a re-render when updated.
 | Mutability | Immutable (from child's view) | Mutable via setters |
 | Purpose | Configure a component | Track data that changes over time |
 
-### Q5. What are stateless components?
+#### Code Example
+
+```jsx
+function Child({ name }) {
+  return <p>Hello, {name}</p>;
+}
+
+function Parent() {
+  return <Child name="Ada" />;
+}
+```
+
+### Q7. What are stateless components?
 
 #### Answer
 
@@ -102,7 +164,7 @@ Stateless components don't manage or hold any internal state — they simply
 receive data via props and render UI based on that data. They're typically
 functional components used for presentational purposes.
 
-### Q6. What are stateful components?
+### Q8. What are stateful components?
 
 #### Answer
 
@@ -110,7 +172,7 @@ Stateful components manage and hold their own internal state. They can
 update their state in response to user interactions or other events, and
 React re-renders them whenever that state changes.
 
-### Q7. What is the difference between React's class components and functional components?
+### Q9. What is the difference between React's class components and functional components?
 
 #### Answer
 
@@ -122,7 +184,7 @@ manage state and side effects too, making them just as capable as class
 components while staying simpler and more composable. Functional components
 with hooks are the modern default.
 
-### Q8. Explain the React component lifecycle methods in class components.
+### Q10. Explain the React component lifecycle methods in class components.
 
 #### Answer
 
@@ -144,7 +206,7 @@ Class component lifecycle methods fall into three phases:
 The Hooks equivalent is `useEffect` (mount/update) with a cleanup function
 returned from it (unmount).
 
-### Q9. What is the purpose of the callback function argument format of setState() in React class components, and when should it be used?
+### Q11. What is the purpose of the callback function argument format of setState() in React class components, and when should it be used?
 
 #### Answer
 
@@ -165,7 +227,7 @@ this.setState({ count: this.state.count + 1 });
 this.setState((prevState) => ({ count: prevState.count + 1 }));
 ```
 
-### Q10. Explain what happens internally when setState is called in React.
+### Q12. Explain what happens internally when setState is called in React.
 
 #### Answer
 
@@ -191,7 +253,7 @@ this.setState((prevState) => ({ count: prevState.count + 1 }));
 
 - What's the difference between the render phase and the commit phase? (see [[06-Rendering]])
 
-### Q11. How would you lift state up in a React application, and why is it necessary?
+### Q13. How would you lift state up in a React application, and why is it necessary?
 
 #### Answer
 
@@ -201,7 +263,7 @@ callbacks to update it) to the components that need it. It's necessary when
 two or more sibling components need to share or stay in sync with the same
 piece of state, since components can't share state directly with siblings.
 
-### Q12. Explain prop drilling.
+### Q14. Explain prop drilling.
 
 #### Answer
 
@@ -211,7 +273,7 @@ child — even though the intermediate components themselves never use that
 data. It makes components harder to refactor and adds noise. Context,
 composition, or state management libraries are common ways to avoid it.
 
-### Q13. What is the difference between createElement and cloneElement?
+### Q15. What is the difference between createElement and cloneElement?
 
 #### Answer
 
@@ -233,7 +295,7 @@ const element = <button className="btn">Click Me</button>;
 const clonedElement = React.cloneElement(element, { className: "btn-primary" });
 ```
 
-### Q14. What is the role of PropTypes in React?
+### Q16. What is the role of PropTypes in React?
 
 #### Answer
 
@@ -241,6 +303,20 @@ const clonedElement = React.cloneElement(element, { className: "btn-primary" });
 development, if a prop doesn't match the declared type (or a required prop
 is missing), React logs a console warning — catching bugs early without
 needing TypeScript.
+
+### Q17. What is the purpose of the `<React.StrictMode>` component?
+
+#### Answer
+
+`StrictMode` is a development-only wrapper that helps surface potential
+problems early by intentionally double-invoking certain functions (component
+render, state updater functions, and effects along with their cleanup — see
+[[02-Hooks]] Q3) and by warning on deprecated/unsafe patterns: legacy string
+refs, the legacy context API, and unsafe lifecycle methods
+(`componentWillMount`, `componentWillReceiveProps`,
+`componentWillUpdate`). It renders no visible UI of its own and has **no
+effect in production builds** — it exists purely to catch bugs during
+development before they reach users.
 
 ## Common Pitfalls
 

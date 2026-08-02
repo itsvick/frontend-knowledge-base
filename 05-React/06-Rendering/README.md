@@ -56,7 +56,31 @@ component bodies (and things like `useMemo`) must not perform side effects
 — only the commit phase is guaranteed to run exactly once per completed
 update.
 
-### Q3. Explain server-side rendering of React applications and its benefits.
+### Q3. What is automatic batching in React 18, and what problem does it solve?
+
+#### Answer
+
+Batching groups multiple state updates into a single re-render instead of
+re-rendering once per update. Before React 18, React only batched updates
+made inside its own event handlers — updates inside a Promise `.then`,
+`setTimeout`, a native (non-React) event listener, or any other callback
+outside React's control each triggered their own separate, synchronous
+re-render. React 18's **automatic batching** extends batching to all of
+those contexts by default, so multiple `setState` calls anywhere are
+grouped into one re-render, cutting redundant work. The rare escape hatch
+when a synchronous update is genuinely required is `flushSync`.
+
+#### Code Example
+
+```jsx
+// React 18+: batched into a single re-render, even inside setTimeout
+setTimeout(() => {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+}, 1000);
+```
+
+### Q4. Explain server-side rendering of React applications and its benefits.
 
 #### Answer
 
@@ -67,7 +91,7 @@ rather than building the DOM from scratch. Benefits include faster
 first-contentful-paint (the user sees content before JS even loads) and
 better SEO, since crawlers receive complete HTML instead of an empty shell.
 
-### Q4. What is SSR, SSG, CSR, ISR in React's rendering model?
+### Q5. What is SSR, SSG, CSR, ISR in React's rendering model?
 
 #### Answer
 

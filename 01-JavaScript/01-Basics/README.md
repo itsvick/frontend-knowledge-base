@@ -287,7 +287,37 @@ b = 23; // ReferenceError: b is not defined
 var b;
 ```
 
-### Q9. What is strict mode in JavaScript, and what are its characteristics?
+### Q9. What are the benefits of hoisting?
+
+#### Answer
+
+Hoisting lets code reference functions and `var` declarations before their textual position in a scope, which has a few practical upsides:
+
+- **Functions can be called before they're declared.** Since function declarations are hoisted along with their full body (not just the name), you can organize code with the main logic at the top and helper functions further down, in whatever order reads best — the call site doesn't have to come after the definition.
+- **Mutual recursion becomes possible.** Two functions that call each other can each reference the other regardless of which one is declared first in the file, since both are fully hoisted before any of the code runs.
+- **`var` references before assignment return `undefined` instead of throwing.** Historically, this meant a variable used slightly before its intended assignment (e.g. inside a loop or conditional the developer forgot updates it later) fails "softly" with `undefined` rather than crashing the whole script — some older code patterns rely on this to remain resilient to ordering, even though it's now generally considered risky (see the drawbacks below).
+
+#### Follow-up Questions
+
+- Why are function declarations hoisted with their entire body, while function expressions and arrow functions assigned to `var`/`let`/`const` are not?
+- Can you give an example where mutual recursion depends on function hoisting?
+
+### Q10. Does hoisting have any drawbacks?
+
+#### Answer
+
+Yes — hoisting trades safety for flexibility, and the trade-off shows up mainly with `var`:
+
+- **Silent `undefined` instead of a clear error.** Because a hoisted `var` is initialized to `undefined` before its declaration line runs, using it too early doesn't throw — it just silently produces `undefined`. This can mask real bugs: a typo'd or reordered variable use fails quietly instead of pointing you at the problem.
+- **Harder to reason about execution order.** Since a declaration's *textual* position no longer matches when it actually becomes available, reading code top-to-bottom doesn't reliably tell you what's initialized at any given point — you have to mentally hoist declarations yourself to know what's safe to use.
+- **This is exactly why the TDZ exists for `let`/`const`.** The temporal dead zone was introduced specifically to close this gap: `let`/`const` are still hoisted (the binding exists from the top of the block), but accessing them before their declaration line throws a `ReferenceError` instead of returning `undefined`. That's the opposite of `var`'s behavior — a loud, immediate failure instead of a silently wrong value — which makes bugs surface at the point of misuse rather than propagating as an unexplained `undefined` further down the code.
+
+#### Follow-up Questions
+
+- Why did the language choose to throw for `let`/`const` in the TDZ instead of just replicating `var`'s `undefined` behavior?
+- Is there ever a legitimate reason to rely on `var`'s hoisting-to-`undefined` behavior today?
+
+### Q11. What is strict mode in JavaScript, and what are its characteristics?
 
 #### Answer
 
@@ -318,7 +348,7 @@ function sum(a, a) {
 - How does strict mode change the value of `this` inside a regular function called without a receiver?
 - Are ES6 modules and classes strict mode by default?
 
-### Q10. What are higher-order functions in JavaScript?
+### Q12. What are higher-order functions in JavaScript?
 
 #### Answer
 
@@ -352,11 +382,11 @@ x(); // "Do something"
 - How do higher-order functions relate to closures?
 - What are some built-in higher-order functions in JavaScript (e.g. array methods)?
 
-### Q11. What are callbacks in JavaScript?
+### Q13. What are callbacks in JavaScript?
 
 #### Answer
 
-A callback is a function passed as an argument to another function, to be executed after that other function finishes its work. Callbacks are possible because functions are first-class citizens in JavaScript — they can be passed around like any other value — which makes a callback simply the argument-passing case of a higher-order function (see Q10).
+A callback is a function passed as an argument to another function, to be executed after that other function finishes its work. Callbacks are possible because functions are first-class citizens in JavaScript — they can be passed around like any other value — which makes a callback simply the argument-passing case of a higher-order function (see Q12).
 
 #### Code Example
 
@@ -383,7 +413,7 @@ operationOnSum(5, 5, multiplyBy2);   // 20
 - How do callbacks relate to asynchronous code (e.g. `setTimeout`, event listeners)?
 - What is "callback hell", and how do Promises/`async`-`await` address it?
 
-### Q12. What is the difference between map() and forEach()?
+### Q14. What is the difference between map() and forEach()?
 
 #### Answer
 
@@ -417,7 +447,7 @@ console.log(doubledThenFiltered); // [4, 6]
 - Why doesn't `map()`'s callback receiving `(element, index, array)` matter for most use cases?
 - When would `reduce()` be a better fit than `map()`?
 
-### Q13. What is the difference between null and undefined?
+### Q15. What is the difference between null and undefined?
 
 #### Answer
 
@@ -433,7 +463,7 @@ let c = null;
 console.log(typeof c); // "object" (quirk of JS)
 ```
 
-### Q14. What is this in JavaScript?
+### Q16. What is this in JavaScript?
 
 #### Answer
 
@@ -482,7 +512,7 @@ obj3.getAddress(); // undefined — `this` is obj3, which has no "address" prope
 - How do `call`, `apply`, and `bind` let you explicitly set `this`?
 - Why is `this` `undefined` instead of the global object inside a strict-mode function called without a receiver?
 
-### Q15. Explain call(), apply(), and bind() methods.
+### Q17. Explain call(), apply(), and bind() methods.
 
 #### Answer
 
@@ -534,7 +564,7 @@ detailsOfPerson1(); // "Vivek, bike details: TS0122, Bullet"
 - Can you `bind()` an already-bound function to a different `this`?
 - How does `call`/`apply`/`bind` interact with arrow functions, which don't have their own `this`?
 
-### Q16. What are event bubbling, capturing, and delegation? Why is delegation efficient?
+### Q18. What are event bubbling, capturing, and delegation? Why is delegation efficient?
 
 #### Answer
 
@@ -601,7 +631,7 @@ list.addEventListener("click", (event) => {
 - When would you deliberately use capturing instead of bubbling?
 - What's the difference between `stopPropagation()` and `preventDefault()`?
 
-### Q17. What are the types of errors in JavaScript?
+### Q19. What are the types of errors in JavaScript?
 
 #### Answer
 
@@ -629,6 +659,21 @@ average(4, 6); // 7, not 5
 
 - What's a `ReferenceError` vs a `TypeError`, and when does each occur?
 - How does `try`/`catch` help with runtime errors, and why can't it catch syntax errors in the same script?
+
+### Q20. What is a JS engine, and which engine does Chrome use?
+
+#### Answer
+
+A JS engine is the program that actually parses and executes JavaScript code. At a high level it: parses the source into an **AST** (abstract syntax tree), compiles that into an intermediate **bytecode**, and then runs the bytecode — with a **JIT (just-in-time) compiler** watching execution and re-compiling "hot" (frequently run) code paths into optimized machine code on the fly, rather than compiling everything ahead of time or purely interpreting line by line.
+
+Chrome (and Node.js) uses **V8**, Google's open-source engine. V8 pairs an interpreter called **Ignition**, which generates and runs bytecode quickly with minimal startup delay, with a JIT compiler called **TurboFan**, which kicks in for functions that run repeatedly and compiles them into highly optimized machine code — falling back to the slower bytecode path (de-optimizing) if its assumptions about the code turn out to be wrong (e.g. an argument's type changes unexpectedly).
+
+The JS engine isn't a single universal thing — each browser vendor ships its own: Chrome/Node use V8, Firefox uses **SpiderMonkey**, and Safari uses **JavaScriptCore** (also known as Nitro). They all implement the same ECMAScript specification, but with different internal architectures and performance characteristics.
+
+#### Follow-up Questions
+
+- What causes V8 to "de-optimize" a function that TurboFan had already optimized?
+- How does an engine's garbage collector fit alongside the parser/interpreter/JIT pipeline?
 
 ## Common Pitfalls
 

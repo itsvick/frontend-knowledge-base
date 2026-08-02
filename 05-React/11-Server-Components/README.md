@@ -46,7 +46,43 @@ The trade-off: Server Components can't use `useState`, `useEffect`, or
 browser APIs, and can't handle events directly — interactivity requires
 nesting a Client Component (`"use client"`) inside them.
 
-### Q2. What is selective hydration?
+### Q2. How do React Server Functions (Server Actions) relate to Server Components?
+
+#### Answer
+
+Server Functions (often called Server Actions) are functions marked with
+`"use server"` that run exclusively on the server but can be invoked
+directly from a Client Component — e.g. as a `<form>`'s `action`, or from an
+event handler — without hand-wiring a separate API route. They're the
+mutation-side counterpart to Server Components: Server Components handle
+*rendering* data from the server, while Server Functions handle *sending*
+data back (form submissions, writes) while still running server-only code
+(database access, validation) directly. React handles the network call and
+re-renders any affected Server Components once the function completes.
+
+#### Code Example
+
+```jsx
+// actions.js
+"use server";
+export async function createPost(formData) {
+  await db.posts.insert({ title: formData.get("title") });
+}
+
+// form.jsx
+import { createPost } from "./actions";
+
+function NewPostForm() {
+  return (
+    <form action={createPost}>
+      <input name="title" />
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+```
+
+### Q3. What is selective hydration?
 
 #### Answer
 

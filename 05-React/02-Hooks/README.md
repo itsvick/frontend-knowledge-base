@@ -253,7 +253,38 @@ previous one.
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
 
-### Q13. Build a custom hook for API caching.
+### Q13. What is the best practice for updating objects and arrays stored in useState?
+
+#### Answer
+
+Never mutate the existing object/array in place. React decides whether to
+re-render by comparing the state reference (`Object.is`) to the previous
+one — mutating in place leaves that reference unchanged, so React may not
+detect the update at all, and any `React.memo`/`PureComponent` child relying
+on shallow prop comparison will also miss the change (see [[13-Performance]]
+Q1). Instead, always produce a **new** object/array and pass that to the
+setter — via spread syntax, array methods that return new arrays
+(`map`/`filter`/`concat`), or an immutability helper like Immer for deeply
+nested state.
+
+#### Code Example
+
+```jsx
+// Wrong — mutates existing state, same reference
+setUser((prev) => {
+  prev.name = "New";
+  return prev;
+});
+
+// Right — new object reference
+setUser((prev) => ({ ...prev, name: "New" }));
+
+// Arrays: same idea
+setItems((prev) => [...prev, newItem]); // add
+setItems((prev) => prev.filter((i) => i.id !== id)); // remove
+```
+
+### Q14. Build a custom hook for API caching.
 
 #### Answer
 
@@ -302,7 +333,7 @@ function useFetchWithCache(url) {
 }
 ```
 
-### Q14. What is the useId hook in React and when should it be used?
+### Q15. What is the useId hook in React and when should it be used?
 
 #### Answer
 
@@ -314,6 +345,25 @@ rendering (unlike hand-rolled counters or `Math.random()`).
 
 ```js
 const id = useId();
+```
+
+### Q16. What is the role of useSyncExternalStore in React?
+
+#### Answer
+
+`useSyncExternalStore` subscribes a component to state that lives **outside**
+React — a browser API, or a third-party store like Redux/Zustand — in a way
+that stays correct under concurrent rendering. It takes a `subscribe`
+function, a `getSnapshot` function returning the current value, and
+optionally a `getServerSnapshot` for SSR. Unlike a hand-rolled
+`useEffect` + `useState` subscription, it guarantees the component never
+reads a torn/inconsistent value mid-render if the store changes while a
+concurrent render is in progress. Most app code never calls it directly —
+state-management libraries use it internally to make their subscriptions
+concurrent-safe.
+
+```js
+const value = useSyncExternalStore(store.subscribe, store.getSnapshot);
 ```
 
 ## Common Pitfalls

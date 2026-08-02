@@ -52,6 +52,45 @@ Common practices that lead to inefficient or hard-to-maintain React code:
   unnecessary child re-renders.
 - Deeply nested state that's hard to update immutably.
 
+### Q3. Which hooks/patterns are becoming less essential in React 19 due to the React Compiler?
+
+#### Answer
+
+The React Compiler (introduced with React 19) automatically memoizes
+components and values at build time by statically analyzing a component's
+dependencies, so manual `useMemo`, `useCallback`, and `React.memo` become
+largely unnecessary for the common case of "stabilize this so a child
+doesn't re-render unnecessarily" — the compiler inserts the equivalent
+memoization wherever it can prove doing so is safe. Code written idiomatically
+(following the Rules of React) benefits automatically, without touching the
+component. It doesn't replace state/effect hooks (`useState`, `useEffect`,
+`useReducer` are all still necessary) and manual memoization is still needed
+for cases the compiler can't infer, such as a mutable external value the
+compiler can't prove is stable — existing `useMemo`/`useCallback` calls
+aren't wrong post-compiler, they just become redundant safety nets.
+
+### Q4. What are common, standard ways to style React components?
+
+#### Answer
+
+- **CSS Modules** — a CSS file scoped to a single component
+  (`Component.module.css`); imported class names are hashed per build,
+  avoiding global class-name collisions.
+- **CSS-in-JS / Styled Components** (styled-components, Emotion) — write CSS
+  inside JS, colocating styles with the component and enabling styles that
+  depend on props; the trade-off is added runtime cost (unless using a
+  zero-runtime/compile-time variant) and a style-injection step (see
+  [[02-Hooks]]'s `useInsertionEffect`).
+- **Inline styles** (`style={{ ... }}`) — fully dynamic per-render styles
+  with no separate stylesheet, but no pseudo-classes/media queries and no
+  shared class reuse; best for one-off computed values.
+- **Utility-first CSS** (Tailwind) — compose styling from small utility
+  classes directly in JSX instead of a separate stylesheet per component.
+
+There's no single "right" choice — the decision usually comes down to team
+convention, whether styles need to vary per-prop, and bundle-size/runtime
+trade-offs.
+
 ## Common Pitfalls
 
 - Forgetting that a Portal's children still participate in React's context

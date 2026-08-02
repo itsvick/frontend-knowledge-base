@@ -342,6 +342,57 @@ module.add(2, 3);
 - What is tree shaking, and why does it work for ES modules but not (well) for CommonJS?
 - Why might you choose a named export over a default export for a given value, or vice versa?
 
+### Q8. What is the difference between an Object and a Map in JavaScript?
+
+#### Answer
+
+Both `Object` and `Map` (ES6) store key-value pairs, but they differ in several important ways:
+
+- **Key types.** An `Object`'s keys are always coerced to strings (or `Symbol`s) — using an object as a key silently stringifies it to `"[object Object]"`. A `Map`'s keys can be *any* value — objects, functions, numbers — without any coercion, so distinct object references stay distinct keys.
+- **Iteration order.** A `Map` guarantees iteration in insertion order, always. An `Object` mostly preserves insertion order too, but not fully: integer-like string keys (e.g. `"1"`, `"2"`) are reordered first, in ascending numeric order, ahead of all string keys (in insertion order) and `Symbol` keys — a quirk that can surprise you if you rely on object key order.
+- **Size.** A `Map` exposes its entry count directly via `.size`. An `Object` has no built-in equivalent — you have to compute it with `Object.keys(obj).length`.
+- **Iterability.** A `Map` is directly iterable — usable with `for...of` and spread (`[...map]`) out of the box. A plain `Object` isn't iterable; you need `Object.entries()`, `Object.keys()`, or `Object.values()` first to get something iterable.
+- **Performance for frequent add/remove.** `Map` is optimized for scenarios with frequent addition and removal of keys. `Object` is optimized for a fixed, known shape — V8 (and similar engines) represent objects internally using "hidden classes" tied to their set of properties, and repeatedly adding/removing properties dynamically causes the engine to fall off that fast path (de-optimizing), which doesn't happen with `Map`.
+- **Syntax and serialization.** A plain object gets convenient dot/bracket syntax (`obj.prop`) and, unlike `Map`, serializes directly with `JSON.stringify()`/`JSON.parse()` — `Map` isn't natively supported by `JSON.stringify()` (it serializes to `{}`) and needs manual conversion (e.g. via `Object.fromEntries()`/spreading into an array of entries) to round-trip through JSON.
+
+In short: use `Object` for a fixed, known set of properties accessed by name (and when JSON serialization matters), and `Map` when keys are dynamic, non-string, or added/removed frequently, or when guaranteed iteration order and direct size/iterability matter.
+
+#### Code Example
+
+```js
+// Key coercion — Object stringifies keys, Map doesn't
+const objKey = {};
+const obj = {};
+obj[objKey] = "value";
+console.log(Object.keys(obj)); // ["[object Object]"] — key was coerced to a string
+
+const map = new Map();
+map.set(objKey, "value");
+console.log(map.get(objKey)); // "value" — original object reference used as-is
+
+// Size
+console.log(Object.keys(obj).length); // 1 — no direct equivalent to .size
+console.log(map.size); // 1
+
+// Iterability
+for (const [key, value] of map) {
+  console.log(key, value); // works directly
+}
+for (const [key, value] of Object.entries(obj)) {
+  console.log(key, value); // Object needs Object.entries() first
+}
+
+// Integer-like keys reorder ahead of insertion order in Object, not in Map
+const reordered = { b: 1, 2: "two", a: 3, 1: "one" };
+console.log(Object.keys(reordered)); // ["1", "2", "b", "a"] — numeric keys first, ascending
+```
+
+#### Follow-up Questions
+
+- Why does `JSON.stringify(new Map(...))` produce `{}`, and how would you serialize a `Map` properly?
+- How would you convert between a `Map` and a plain `Object` (e.g. `Object.fromEntries(map)` and `new Map(Object.entries(obj))`)?
+- Why does V8's hidden-class optimization make `Object` a poor fit for a data structure with frequently changing keys?
+
 ## Common Pitfalls
 
 - Using an arrow function as an object method when you need `this` to refer to the object.
