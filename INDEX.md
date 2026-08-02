@@ -40,6 +40,7 @@ numbered in the order they're meant to be studied.
 - [12-Advanced](01-JavaScript/12-Advanced/README.md)
 - [13-Interview-Coding](01-JavaScript/13-Interview-Coding/README.md)
 - [14-FAQs](01-JavaScript/14-FAQs.md)
+- [15-Error-Handling](01-JavaScript/15-Error-Handling/README.md)
 
 </details>
 
@@ -222,7 +223,10 @@ numbered in the order they're meant to be studied.
 - [03-CSRF](13-Security/03-CSRF.md)
 - [04-CSP](13-Security/04-CSP.md)
 - [05-JWT](13-Security/05-JWT.md)
-- [06-FAQs](13-Security/06-FAQs.md)
+- [06-OAuth](13-Security/06-OAuth.md)
+- [07-OIDC](13-Security/07-OIDC.md)
+- [08-Token-Storage](13-Security/08-Token-Storage.md)
+- [09-FAQs](13-Security/09-FAQs.md)
 
 </details>
 

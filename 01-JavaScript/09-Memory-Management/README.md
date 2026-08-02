@@ -21,8 +21,8 @@ How JavaScript allocates and reclaims memory, and the APIs that work with the ga
 `WeakMap` and `WeakSet` are ES6 collections similar to `Map` and `Set`, but they hold their keys (`WeakMap`) or values (`WeakSet`) **weakly** — meaning the reference doesn't prevent garbage collection. Once there's no other reference to an object used as a key/value, the entry is automatically removed and its memory reclaimed.
 
 Key differences from `Map`/`Set`:
-- Keys (`WeakMap`) / values (`WeakSet`) must be objects, not primitives.
-- Not iterable — no `.keys()`, `.values()`, `.entries()`, or `size`, since the collection's contents can change at any time as the GC runs.
+- Keys (`WeakMap`) / values (`WeakSet`) must be objects, not primitives — constructing either with a primitive throws a `TypeError`.
+- Not iterable — no `.keys()`, `.values()`, `.entries()`, or `size`, since the collection's contents can change at any time as the GC runs. Correspondingly, `WeakSet` only exposes `add()`, `delete()`, and `has()` (no `forEach`, no way to enumerate its contents), and `WeakMap` only exposes `get()`, `set()`, `delete()`, and `has()`.
 
 Common use cases:
 - **Caching/memoizing data tied to an object's lifetime** — e.g. storing computed metadata for a DOM node in a `WeakMap`, without leaking memory when the node is removed.
@@ -53,6 +53,14 @@ function process(obj) {
   processed.add(obj);
   // ... do work
 }
+
+// Primitives are rejected — both throw a TypeError
+// new WeakSet([3, 4, 5]);
+// new WeakMap().set("Value", 2.3);
+
+let obj1 = { message: "Hello world" };
+const objSet = new WeakSet([obj1]);
+objSet.has(obj1); // true
 ```
 
 #### Follow-up Questions
