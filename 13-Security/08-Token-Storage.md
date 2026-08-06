@@ -124,10 +124,81 @@ family immediately.
 - How would refresh token rotation detect that a token was stolen, and
   what should the server do when it detects reuse?
 
+### Q3. How do you handle authentication and token refresh across multiple tabs/windows?
+
+#### Answer
+
+**The problem.** If every tab independently detects an expired access
+token and calls the refresh endpoint, multiple tabs can race to refresh at
+the same moment. With refresh token rotation (each use invalidates the
+old refresh token and issues a new one), the second tab's refresh call
+uses an already-rotated, now-invalid refresh token — the server sees reuse
+of a rotated token (a signal normally reserved for detecting theft) and
+can revoke the whole session, logging every tab out at once. Even without
+rotation, redundant simultaneous refresh calls waste requests and can
+leave tabs holding inconsistent in-memory access tokens.
+
+Since the refresh token itself is best kept in an `HttpOnly` cookie (see
+above) rather than JS-accessible storage, the browser already shares it
+across tabs automatically — the real problem is **coordinating which tab
+is allowed to actually call the refresh endpoint**, and making sure the
+others don't duplicate that work.
+
+**BroadcastChannel API.** One tab performs the refresh; on success, it
+broadcasts the new access token (and expiry) to all other same-origin
+tabs via `BroadcastChannel`, and those tabs update their in-memory token
+instead of independently calling refresh themselves. The same channel
+broadcasts a "logout" event so every tab clears its session together.
+
+```js
+const channel = new BroadcastChannel('auth');
+
+channel.onmessage = (e) => {
+  if (e.data.type === 'token-refreshed') setAccessToken(e.data.token);
+  if (e.data.type === 'logout') clearSession();
+};
+
+// after this tab performs a refresh:
+channel.postMessage({ type: 'token-refreshed', token: newAccessToken });
+```
+
+**Web Locks API (leader election).** Rather than reacting after the fact,
+`navigator.locks.request` lets only one tab acquire a lock and perform the
+actual refresh call; other tabs requesting the same lock simply wait, then
+proceed once it releases — at that point the refresh has already
+happened (e.g. the `HttpOnly` cookie is updated), so they just retry their
+original request. This avoids the race entirely instead of coordinating
+after two tabs have already both fired a refresh call.
+
+**SharedWorker.** A single `SharedWorker` instance, shared by every tab of
+the same origin, owns the token/refresh logic entirely: tabs message the
+worker for the current token and to trigger a refresh, and the worker
+guarantees only one refresh is ever in flight, broadcasting the result to
+every connected tab. More setup than `BroadcastChannel`, but centralizes
+the race-handling logic in one place instead of duplicating it per tab.
+
+**Server-side belt-and-suspenders.** Even with client-side coordination, a
+brief grace window on refresh-token rotation (accepting the immediately
+prior token once, within a short window) protects against an unavoidable
+client-side timing edge case cascading into every tab being logged out.
+
+#### Follow-up Questions
+
+- What's the fallback if `BroadcastChannel` isn't supported (older
+  Safari)?
+- How would a `SharedWorker`-based approach handle a tab that was already
+  open before the worker script itself was updated/deployed?
+- Why does refresh token rotation make this coordination problem more
+  urgent than it would be without rotation?
+
 ## Common Pitfalls
 
 - Storing a long-lived JWT in `localStorage` "for simplicity," turning any
   future XSS bug into full, silent, long-duration session takeover.
+- Letting every tab independently call the refresh endpoint on expiry
+  without coordination, which — combined with refresh token rotation —
+  can log every tab out when a second tab's refresh call reuses an
+  already-rotated token.
 - Setting `SameSite=None` on a session cookie without a compensating CSRF
   token, "because some third-party redirect broke otherwise."
 - Storing the refresh token in the same place/scope as the access token —

@@ -53,7 +53,65 @@ consistency (design, versioning, testing). It's generally only worth it once
 an organization has enough teams that a single shared frontend repo becomes
 the bottleneck.
 
-### Q2. Draw/describe a typical micro-frontend architecture.
+### Q2. Module Federation vs iframes vs Web Components — how do these compare as micro-frontend composition mechanisms, and how do you manage shared dependencies without version conflicts?
+
+#### Answer
+
+**iframes** give the strongest isolation — separate document, JS realm,
+and CSS, so nothing leaks either direction — at the cost of the weakest
+integration: no shared DOM (a dropdown or tooltip can't render outside the
+iframe's box), no code sharing (every iframe ships its own full bundle,
+including its own framework runtime), and awkward routing/history,
+resizing, and SEO. Cross-frame communication is limited to `postMessage`.
+Best fit: embedding something genuinely untrusted or fully independent
+(e.g. a third-party payment form), where isolation matters more than
+integration.
+
+**Web Components** (Custom Elements + Shadow DOM) are framework-agnostic:
+a remote ships a `<checkout-widget>` custom element any host — React,
+Angular, plain HTML — can mount, with Shadow DOM giving CSS encapsulation
+without a full iframe's isolation cost. The trade-off: there's no built-in
+mechanism to share a framework runtime, so each Web Component often bundles
+its own React/Angular instance unless deliberately engineered not to
+(inflating total bundle size), and cross-component communication is
+limited to DOM events/attributes rather than a rich JS API.
+
+**Module Federation** is the most integrated option: host and remotes share
+the same JS realm and can share a singleton instance of a framework/library
+(`shared: { react: { singleton: true } }` — see
+[Module Federation](04-Module-Federation.md)), so remotes can access the
+host's context/state directly and avoid duplicate framework copies. The
+trade-off is the least isolation — a bug in one remote runs in the same
+realm as everything else — and it works best within one framework
+ecosystem, unlike Web Components' framework-agnosticism.
+
+**Choosing between them:** Module Federation when every micro-frontend
+shares one framework and needs tight integration (shared design system,
+shared auth context, shared routing) — the common case for most
+enterprise micro-frontend setups. Web Components when composition must be
+framework-agnostic (teams on different stacks, or embedding in a CMS/
+marketing site). iframes when isolation/security matters more than
+integration (untrusted third-party content).
+
+**Shared dependency management and version conflicts** are really a
+Module-Federation-specific concern, since it's the only one of the three
+that shares a JS realm at all — see
+[Module Federation Q2/Q3](04-Module-Federation.md) for the `singleton`/
+`requiredVersion`/`strictVersion` mechanics and how to catch conflicts in
+CI before they reach production. Deployment independence without version
+conflicts additionally relies on deploying each remote to an immutable,
+versioned URL (covered in Q6/Q7 below) so a remote's independent release
+can't silently break the host or another remote through an incompatible
+shared-library version.
+
+#### Follow-up Questions
+
+- Why can't a Web Component easily share a single React instance across
+  multiple components the way Module Federation can?
+- If a team insists on using a different framework for their remote, which
+  of these three options remains viable, and what do they give up?
+
+### Q3. Draw/describe a typical micro-frontend architecture.
 
 #### Answer
 
@@ -83,7 +141,7 @@ and release cadence), and publishes a manifest (e.g. `remoteEntry.js`) that
 the shell fetches and loads at runtime — so shipping a new version of the
 Cart remote doesn't require rebuilding or redeploying the shell.
 
-### Q3. How do micro-frontends communicate with each other?
+### Q4. How do micro-frontends communicate with each other?
 
 #### Answer
 
@@ -108,7 +166,7 @@ Common communication mechanisms instead:
 The general principle: prefer the least coupling that gets the job done, and
 avoid a remote reaching into another remote's internals directly.
 
-### Q4. How is routing handled across micro-frontends?
+### Q5. How is routing handled across micro-frontends?
 
 #### Answer
 
@@ -129,7 +187,7 @@ time; a remote's internal router typically runs in a mode where it defers to
 (or is scoped under) the shell's history rather than instantiating its own
 competing listener.
 
-### Q5. How is authentication handled across micro-frontends?
+### Q6. How is authentication handled across micro-frontends?
 
 #### Answer
 
@@ -150,7 +208,7 @@ remote:
   domain, or a token-exchange step) keeps the user from re-authenticating
   per remote.
 
-### Q6. What deployment strategies work for micro-frontends?
+### Q7. What deployment strategies work for micro-frontends?
 
 #### Answer
 
@@ -167,7 +225,7 @@ from the shell and from other remotes:
   version a percentage of users/shells resolve to, before flipping
   everyone over.
 
-### Q7. What's the rollback strategy for micro-frontends?
+### Q8. What's the rollback strategy for micro-frontends?
 
 #### Answer
 

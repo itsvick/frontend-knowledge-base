@@ -17,7 +17,65 @@ A design system is a shared source of truth — design tokens, a component libra
 
 ## Interview Questions & Answers
 
-### Q1. What makes a good design system, especially in an AI-driven development environment?
+### Q1. How would you architect a design system used across multiple teams/products?
+
+#### Answer
+
+Four things need explicit design, since each is where a multi-team design
+system typically breaks in practice:
+
+**Token-based theming.** Tokens are the layer that lets multiple
+products/brands share one component library without forking it: raw
+values (a color, a spacing unit) are aliased into semantic tokens
+(`color.action.primary`, not `#1a73e8`), and a component only ever
+references the semantic token. Multi-brand or light/dark theming then
+becomes swapping which token *set* resolves at runtime (CSS custom
+properties) or build time — the component code itself never changes per
+brand/theme.
+
+**Component API design.** Keep the public prop surface minimal and
+composable — variant/size/state enums plus slot-based children
+(compound components, render props) — rather than a large flat prop list
+that mirrors internal implementation details. A wide, ad hoc prop surface
+is what makes future changes breaking; a narrow, composable one gives more
+room to evolve internals without touching the public contract.
+
+**Versioning strategy.** Publish as independently versioned package(s)
+under strict semver — patch/minor releases never break the public API;
+majors are rare, batched, and shipped with a migration codemod rather than
+a changelog note alone. Consuming teams pin a version and upgrade
+deliberately instead of always tracking `latest`, so a change on the
+design-system side doesn't propagate into five apps the moment it merges.
+
+**Preventing a breaking change from nuking other teams' apps:**
+
+- **Deprecation window** — mark an API deprecated (console warning, docs)
+  for at least one minor cycle before removing it, so consumers see the
+  warning in their own CI/dev builds before it becomes a hard break.
+- **Visual regression + interaction tests** on the design system's own
+  Storybook before publishing, catching an unintended behavior change
+  before it ships to any consumer.
+- **Pre-release/canary tags** — a subset of consumers can opt into trying
+  a new major before it's promoted to `latest`, surfacing real breakage
+  from real usage before the wider rollout.
+- **Automated dependency update PRs** (Renovate/Dependabot) across
+  consuming repos, so version bumps arrive incrementally and get reviewed
+  in small steps instead of accumulating into one high-risk multi-major
+  jump later.
+- **Governance/RFC process** for anything touching an existing public
+  API, so a breaking change is a deliberate, reviewed decision rather than
+  something that ships as a side effect of an unrelated fix.
+
+#### Follow-up Questions
+
+- How would you support a one-off visual difference for a single team
+  without forking the whole system?
+- Team A needs a breaking change today but Team B can't upgrade for
+  another quarter — how do you unblock A without forcing B's hand?
+- How do you decide when a prop-level change is actually breaking versus
+  safe to ship as a minor?
+
+### Q2. What makes a good design system, especially in an AI-driven development environment?
 
 #### Answer
 
